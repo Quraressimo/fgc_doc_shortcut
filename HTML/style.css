@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f6f8;
+    color: #20242a;
+    font-family: Arial, "Malgun Gothic", sans-serif;
+}
+
+.page {
+    width: 100%;
+    padding: 32px clamp(12px, 4vw, 32px);
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin: 0 0 8px;
+}
+
+.page-header p,
+.filter-help,
+.empty-tag-message,
+.search-status {
+    color: #5b6470;
+}
+
+.guide-search > h2 {
+    margin: 0 0 16px;
+}
+
+#tag-search-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    font: inherit;
+}
+
+#tag-search-input:focus {
+    outline: 2px solid #315fce;
+}
+
+.tag-filters,
+.subfilter,
+.tag-subfilter {
+    min-width: 0;
+    margin: 0;
+}
+
+.tag-filters,
+.subfilter,
+.subfilters {
+    display: grid;
+    gap: 12px;
+}
+
+/* grid 레이아웃에서도 hidden 상태인 필터를 확실히 숨깁니다. */
+.subfilter[hidden],
+.tag-subfilter[hidden] {
+    display: none;
+}
+
+.tag-filters,
+.subfilter,
+.tag-subfilter {
+    padding: 0;
+    border: 0;
+}
+
+.subfilter {
+    padding: 12px;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+}
+
+.subfilter > legend {
+    padding: 0 6px;
+    font-weight: 600;
+}
+
+.subfilters,
+.tag-subfilters {
+    margin-top: 12px;
+}
+
+.tag-subfilters {
+    display: grid;
+    gap: 12px;
+}
+
+.filter-help {
+    margin: 0;
+}
+
+.tag-filter-list,
+.guide-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tag-filter-list label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.tag-filter-list input {
+    margin: 0;
+    accent-color: #315fce;
+}
+
+.search-status {
+    margin: 16px 0 0;
+}
+
+.guide-list {
+    display: grid;
+    margin-top: 12px;
+}
+
+.guide-list a {
+    display: block;
+    padding: 4px 0;
+    color: #244da8;
+}
