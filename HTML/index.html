@@ -6,7 +6,8 @@
     <title>공략바로가기</title>
     <link rel="stylesheet" href="style.css">
     <!-- html 로드 완료 후 js 실행 -->
-    <script src="script.js" defer></script> 
+    <script src="guides-data.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <main class="page">
@@ -52,7 +53,7 @@
                 type="search"
                 id="tag-search-input"
                 placeholder="캐릭터, 플랫폼, 태그 검색"
-                aria-controls="base-character-filter-list season-pass-1-filter-list season-pass-2-filter-list season-pass-3-filter-list season-pass-4-filter-list season-pass-5-filter-list platform-filter-list tag-filter-list difficulty-filter-list situation-filter-list location-filter-list category-filter-list type-filter-list"
+                aria-controls="base-character-filter-list season-pass-1-filter-list season-pass-2-filter-list season-pass-3-filter-list season-pass-4-filter-list season-pass-5-filter-list platform-filter-list difficulty-filter-list situation-filter-list location-filter-list category-filter-list type-filter-list"
             >
 
             <fieldset class="tag-filters">
@@ -94,7 +95,6 @@
                     </fieldset>
                     <fieldset id="tag-filter-category" class="subfilter">
                         <legend>태그</legend>
-                        <ul id="tag-filter-list" class="tag-filter-list"></ul>
                         <div class="tag-subfilters">
                             <fieldset id="difficulty-filter-group" class="tag-subfilter">
                                 <legend>난이도</legend>

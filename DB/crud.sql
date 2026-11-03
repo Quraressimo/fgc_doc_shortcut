@@ -5,8 +5,3 @@ INSERT INTO guides (id, url, chara, platform, tag1, tag2, tag3, tag4, tag5) VALU
 	(6, 'https://www.youtube.com/results?search_query=%EB%B8%8C%EB%A6%BF%EC%A7%80+%EC%85%8B%EC%97%85', '브리짓', 'YOUTUBE', '셋업', '~골드', '구석', '기상', '텐션 100%'),
 	(7, 'https://search.dcinside.com/post/q/%EB%82%98%EA%B3%A0%EB%A6%AC%EC%9C%A0%ED%82%A4+%EB%8C%80%EC%B2%98%EB%B2%95', '나고리유키', 'DC', '대처법', '~다이아', '원거리', '뉴트럴', ''),
 	(8, 'https://arca.live/b/search?q=%EB%A9%94%EC%9D%B4+%EC%9B%94%EB%B8%8C%EB%A0%88%EC%9D%B4%ED%81%AC', '메이', '아카', '월브레이크', '~투신', '구석', '콤보', '텐션 100%');
-
--- Read all records
-SELECT id, url, chara, platform, tag1, tag2, tag3, tag4, tag5
-FROM guides
-ORDER BY id;

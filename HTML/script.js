@@ -83,8 +83,8 @@ const filterGroups = {
     }
 };
 
-// 공략 데이터가 추가되면 필터 항목과 검색 결과에 함께 반영됩니다.
-const guides = [];
+// guides-data.js에서 DB 내용을 미리 생성해 제공합니다.
+let guides = Array.isArray(window.GUIDES) ? window.GUIDES : [];
 
 // 체크 선택을 검색어 입력과 별도로 보존합니다.
 const selectedFilters = {
@@ -218,11 +218,24 @@ function renderGuides() {
 
     for (const guide of matchingGuides) {
         const item = document.createElement("li");
-        const link = document.createElement("a");
+        const card = document.createElement("a");
+        const platform = document.createElement("span");
+        const tags = document.createElement("span");
 
-        link.href = guide.url;
-        link.textContent = guide.title;
-        item.append(link);
+        card.href = guide.url;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.className = "guide-card";
+
+        const title = document.createElement("span");
+        title.className = "guide-link";
+        title.textContent = guide.title;
+        platform.className = "guide-platform";
+        platform.textContent = guide.platform;
+        tags.className = "guide-tags";
+        tags.textContent = (guide.tags ?? []).filter(Boolean).join(" · ");
+        card.append(title, platform, tags);
+        item.append(card);
         guideList.append(item);
     }
 
