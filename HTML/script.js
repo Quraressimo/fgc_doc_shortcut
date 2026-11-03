@@ -53,31 +53,31 @@ const filterGroups = {
                 key: "difficulty",
                 container: document.querySelector("#difficulty-filter-group"),
                 list: document.querySelector("#difficulty-filter-list"),
-                options: ["입문", "초급", "중급", "고급"]
+                options: ["~브론즈", "~골드", "~다이아", "~투신"]
             },
             {
                 key: "situation",
                 container: document.querySelector("#situation-filter-group"),
                 list: document.querySelector("#situation-filter-list"),
-                options: ["뉴트럴", "대공"]
+                options: ["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]
             },
             {
                 key: "location",
                 container: document.querySelector("#location-filter-group"),
                 list: document.querySelector("#location-filter-list"),
-                options: ["개막", "구석"]
+                options: ["개막", "구석", "근거리", "중거리", "원거리"]
             },
             {
                 key: "category",
                 container: document.querySelector("#category-filter-group"),
                 list: document.querySelector("#category-filter-list"),
-                options: ["콤보", "셋업"]
+                options: ["콤보", "셋업", "운영", "기초", "대처법"]
             },
             {
                 key: "type",
                 container: document.querySelector("#type-filter-group"),
                 list: document.querySelector("#type-filter-list"),
-                options: ["콤보", "셋업"]
+                options: ["텐션 50%", "텐션 100%", ]
             }
         ]
     }
