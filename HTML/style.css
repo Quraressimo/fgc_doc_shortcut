@@ -18,6 +18,45 @@ body {
     margin-bottom: 24px;
 }
 
+.useful-links {
+    margin-bottom: 24px;
+}
+
+.useful-links h2 {
+    margin: 0 0 12px;
+}
+
+.useful-link-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.useful-link-list a {
+    display: grid;
+    gap: 6px;
+    height: 100%;
+    padding: 14px;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+    background: #fff;
+    color: #244da8;
+    text-decoration: none;
+}
+
+.useful-link-list a:hover,
+.useful-link-list a:focus-visible {
+    border-color: #315fce;
+}
+
+.useful-link-list span {
+    color: #5b6470;
+    font-size: 0.9rem;
+}
+
 .page-header h1 {
     margin: 0 0 8px;
 }

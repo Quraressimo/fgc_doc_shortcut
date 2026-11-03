@@ -42,7 +42,7 @@ const filterGroups = {
     platform: {
         container: document.querySelector("#platform-filter-category"),
         list: document.querySelector("#platform-filter-list"),
-        options: ["YOUTUBE", "트위터", "디스코드", "DC", "아카"]
+        options: ["YOUTUBE", "트위터", "DC", "아카"]
     },
     tags: {
         container: document.querySelector("#tag-filter-category"),
