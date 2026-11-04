@@ -1,8 +1,8 @@
 # fgc_doc_shortcut
-## 업데이트 현황은 HISTORY.md 혹은 Releases, Commits 페이지를 참고하세요
+업데이트 현황은 HISTORY.md 혹은 Releases, Commits 페이지를 참고하세요
+
 ## 프로젝트 소개
 ai활용프로그래밍 프로젝트용이에요
-
 ### 파일 구조
 #### HTML
 - `index.html`: 공략 검색 화면을 구성합니다.
@@ -32,4 +32,5 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
 
 그 다음 `HTML\index.html`을 브라우저에서 직접 열면 됩니다.
 `crud.sql`의 예시 데이터를 갱신한 경우에는 위 두 명령을 다시 실행합니다.
-## 실행 화면 스크린샷 권장
+
+## 실행 화면 스크린샷
