@@ -1,22 +1,29 @@
 # fgc_doc_shortcut
 ## 프로젝트 소개
 ai활용프로그래밍 프로젝트용이에요
-### HTML
+
+### 파일 구조
+#### HTML
 - `index.html`: 공략 검색 화면을 구성합니다.
 - `script.js`: 태그 필터와 공략 카드 출력을 처리합니다.
 - `style.css`: 웹페이지의 화면 스타일을 정의합니다.
 - `guides-data.js`: SQLite DB에서 변환된 공략 데이터를 저장합니다.
 
-### DB
-
+#### DB
 - `tables.sql`: `guides` 테이블의 구조를 정의합니다.
-- `crud.sql`: 공략 예시 데이터를 DB에 입력합니다.
-- `title`: 공략 카드에 표시할 제목입니다. 비워 두면 캐릭터명을 이용한 기본 제목을 사용합니다.
+- `crud.sql`: 공략 데이터를 DB에 입력합니다.
 - `fgc.db`: 공략 데이터가 저장된 SQLite 데이터베이스입니다.
 - `read_db.py`: 테이블을 생성하고 `crud.sql`의 데이터를 DB에 입력합니다.
 - `export_guides.py`: SQLite 데이터를 `HTML/guides-data.js`로 변환합니다.
 
 ## 설치법
+https://github.com/Quraressimo/fgc_doc_shortcut/releases
+
+Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_XXXX.zip 확장자 파일을 다운 받아 압축을 풀어주세요.
+
+<img width="802" height="532" alt="image" src="https://github.com/user-attachments/assets/44945eab-47df-4a75-add4-d64b65af9b83" />
+
+
 ## 사용법
 서버 없이 HTML 파일을 직접 열려면 먼저 DB 내용을 JS 데이터 파일로 변환합니다.
 
