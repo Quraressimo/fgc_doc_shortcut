@@ -21,8 +21,7 @@ https://github.com/Quraressimo/fgc_doc_shortcut/releases
 
 Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_XXXX.zip 확장자 파일을 다운 받아 압축을 풀어주세요.
 
-<img width="802" height="532" alt="image" src="https://github.com/user-attachments/assets/44945eab-47df-4a75-add4-d64b65af9b83" />
-
+<img width="644" height="471" alt="image" src="https://github.com/user-attachments/assets/58052ccb-07e7-4704-aeb1-f483a607da48" />
 
 ## 사용법
 서버 없이 HTML 파일을 직접 열려면 먼저 DB 내용을 JS 데이터 파일로 변환합니다.
