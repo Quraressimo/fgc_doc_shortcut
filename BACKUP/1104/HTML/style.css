@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f6f8;
+    color: #20242a;
+    font-family: Arial, "Malgun Gothic", sans-serif;
+}
+
+.page {
+    width: 100%;
+    padding: 32px clamp(12px, 4vw, 32px);
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.useful-links {
+    margin-bottom: 24px;
+}
+
+.useful-links h2 {
+    margin: 0 0 12px;
+}
+
+.useful-link-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.useful-link-list a {
+    display: grid;
+    gap: 6px;
+    height: 100%;
+    padding: 14px;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+    background: #fff;
+    color: #244da8;
+    text-decoration: none;
+}
+
+.useful-link-list a:hover,
+.useful-link-list a:focus-visible {
+    border-color: #315fce;
+}
+
+.useful-link-list span {
+    color: #5b6470;
+    font-size: 0.9rem;
+}
+
+.page-header h1 {
+    margin: 0 0 8px;
+}
+
+.page-header p,
+.filter-help,
+.empty-tag-message,
+.search-status {
+    color: #5b6470;
+}
+
+.guide-search > h2 {
+    margin: 0 0 16px;
+}
+
+#tag-search-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    font: inherit;
+}
+
+#tag-search-input:focus {
+    outline: 2px solid #315fce;
+}
+
+.tag-filters,
+.subfilter,
+.tag-subfilter {
+    min-width: 0;
+    margin: 0;
+}
+
+.tag-filters,
+.subfilter,
+.subfilters {
+    display: grid;
+    gap: 12px;
+}
+
+/* grid 레이아웃에서도 hidden 상태인 필터를 확실히 숨깁니다. */
+.subfilter[hidden],
+.tag-subfilter[hidden] {
+    display: none;
+}
+
+.tag-filters,
+.subfilter,
+.tag-subfilter {
+    padding: 0;
+    border: 0;
+}
+
+.subfilter {
+    padding: 12px;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+}
+
+.subfilter > legend {
+    padding: 0 6px;
+    font-weight: 600;
+}
+
+.subfilters,
+.tag-subfilters {
+    margin-top: 12px;
+}
+
+.tag-subfilters {
+    display: grid;
+    gap: 12px;
+}
+
+.filter-help {
+    margin: 0;
+}
+
+.tag-filter-list,
+.guide-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tag-filter-list label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.tag-filter-list input {
+    margin: 0;
+    accent-color: #315fce;
+}
+
+.search-status {
+    margin: 16px 0 0;
+}
+
+.guide-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.guide-card {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(100px, 0.4fr) minmax(240px, 1.5fr);
+    gap: 16px;
+    align-items: center;
+    min-height: 72px;
+    padding: 16px 20px;
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.guide-card:hover,
+.guide-card:focus-visible {
+    border-color: #315fce;
+    box-shadow: 0 2px 8px rgb(32 36 42 / 12%);
+    outline: none;
+}
+
+.guide-card .guide-link {
+    display: block;
+    color: #244da8;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.guide-card:hover .guide-link,
+.guide-card:focus-visible .guide-link {
+    color: #244da8;
+    text-decoration: underline;
+}
+
+.guide-platform,
+.guide-tags {
+    color: #5b6470;
+    line-height: 1.5;
+}
+
+.guide-platform {
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .guide-card {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 14px 16px;
+    }
+}

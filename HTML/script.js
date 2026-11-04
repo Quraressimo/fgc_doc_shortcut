@@ -42,7 +42,7 @@ const filterGroups = {
     platform: {
         container: document.querySelector("#platform-filter-category"),
         list: document.querySelector("#platform-filter-list"),
-        options: ["YOUTUBE", "트위터", "DC", "아카"]
+        options: ["YouTube", "X", "dcinside", "아카라이브", "기타"]
     },
     tags: {
         container: document.querySelector("#tag-filter-category"),
@@ -56,6 +56,12 @@ const filterGroups = {
                 options: ["~브론즈", "~골드", "~다이아", "~투신"]
             },
             {
+                key: "category",
+                container: document.querySelector("#category-filter-group"),
+                list: document.querySelector("#category-filter-list"),
+                options: ["콤보", "셋업", "운영", "기초", "대처법", "공용"]
+            },
+            {
                 key: "situation",
                 container: document.querySelector("#situation-filter-group"),
                 list: document.querySelector("#situation-filter-list"),
@@ -66,12 +72,6 @@ const filterGroups = {
                 container: document.querySelector("#location-filter-group"),
                 list: document.querySelector("#location-filter-list"),
                 options: ["개막", "구석", "근거리", "중거리", "원거리"]
-            },
-            {
-                key: "category",
-                container: document.querySelector("#category-filter-group"),
-                list: document.querySelector("#category-filter-list"),
-                options: ["콤보", "셋업", "운영", "기초", "대처법"]
             },
             {
                 key: "type",
@@ -98,6 +98,29 @@ const selectedFilters = {
     type: new Set()
 };
 
+let filterOpenStateBeforeSearch = null;
+let previousSearchQuery = "";
+
+const tagGroups = {
+    difficulty: new Set(["~브론즈", "~골드", "~다이아", "~투신"]),
+    category: new Set(["콤보", "셋업", "운영", "기초", "대처법", "공용"]),
+    situation: new Set(["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]),
+    location: new Set(["개막", "구석", "근거리", "중거리", "원거리"]),
+    type: new Set(["텐션 50%", "텐션 100%"])
+};
+const tagGroupOrder = ["difficulty", "category", "situation", "location", "type"];
+
+function getTagGroup(tag) {
+    return Object.entries(tagGroups)
+        .find(([, options]) => options.has(tag))?.[0] ?? "other";
+}
+
+function getSortedTags(tags) {
+    return tagGroupOrder.flatMap((groupName) =>
+        tags.filter((tag) => getTagGroup(tag) === groupName)
+    );
+}
+
 function getOptions(groupName, baseOptions, subfilter) {
     const relevantGuides = subfilter?.characterType
         ? guides.filter((guide) =>
@@ -117,6 +140,19 @@ function getOptions(groupName, baseOptions, subfilter) {
 
 function getSearchQuery() {
     return tagSearchInput.value.trim().toLocaleLowerCase();
+}
+
+function getKoreanInitials(value) {
+    const initialConsonants = [
+        "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ",
+        "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"
+    ];
+
+    return [...value].map((character) => {
+        const code = character.charCodeAt(0) - 0xac00;
+        if (code < 0 || code > 11171) return character;
+        return initialConsonants[Math.floor(code / 588)];
+    }).join("");
 }
 
 function updateSelectedFilter(selection, option, checked) {
@@ -159,6 +195,7 @@ function renderOptionList(filterName, list, presetOptions, subfilter) {
     const options = getOptions(filterName, presetOptions, subfilter);
     const matchingOptions = options.filter((option) =>
         option.toLocaleLowerCase().includes(query)
+        || getKoreanInitials(option).includes(query)
     );
 
     list.replaceChildren();
@@ -169,18 +206,22 @@ function renderOptionList(filterName, list, presetOptions, subfilter) {
 
     for (const option of matchingOptions) {
         const item = document.createElement("li");
-        const label = document.createElement("label");
-        const checkbox = document.createElement("input");
+        const button = document.createElement("button");
+        const isSelected = selectedFilters[filterName].has(option);
 
-        checkbox.type = "checkbox";
-        checkbox.value = option;
-        checkbox.checked = selectedFilters[filterName].has(option);
-        checkbox.addEventListener("change", () => {
-            updateSelectedFilter(selectedFilters[filterName], option, checkbox.checked);
+        button.type = "button";
+        button.className = `filter-option filter-option-${filterName}`;
+        button.textContent = option;
+        button.setAttribute("aria-pressed", String(isSelected));
+        button.addEventListener("click", () => {
+            updateSelectedFilter(
+                selectedFilters[filterName],
+                option,
+                !selectedFilters[filterName].has(option)
+            );
         });
 
-        label.append(checkbox, document.createTextNode(option));
-        item.append(label);
+        item.append(button);
         list.append(item);
     }
 
@@ -188,9 +229,34 @@ function renderOptionList(filterName, list, presetOptions, subfilter) {
 }
 
 function renderFilters() {
+    const searchQuery = getSearchQuery();
+    const hasSearchQuery = searchQuery !== "";
+
+    if (hasSearchQuery && previousSearchQuery === "") {
+        filterOpenStateBeforeSearch = Object.fromEntries(
+            Object.entries(filterGroups).map(([groupName, group]) => [
+                groupName,
+                group.container.open
+            ])
+        );
+    }
+
+    if (hasSearchQuery) {
+        for (const group of Object.values(filterGroups)) {
+            group.container.open = true;
+        }
+    } else if (previousSearchQuery !== "" && filterOpenStateBeforeSearch) {
+        for (const [groupName, wasOpen] of Object.entries(filterOpenStateBeforeSearch)) {
+            filterGroups[groupName].container.open = wasOpen;
+        }
+        filterOpenStateBeforeSearch = null;
+    }
+
     for (const groupName of Object.keys(filterGroups)) {
         renderFilterGroup(groupName);
     }
+
+    previousSearchQuery = searchQuery;
 }
 
 function renderGuides() {
@@ -219,6 +285,7 @@ function renderGuides() {
     for (const guide of matchingGuides) {
         const item = document.createElement("li");
         const card = document.createElement("a");
+        const character = document.createElement("span");
         const platform = document.createElement("span");
         const tags = document.createElement("span");
 
@@ -230,11 +297,21 @@ function renderGuides() {
         const title = document.createElement("span");
         title.className = "guide-link";
         title.textContent = guide.title;
+        character.className = "guide-character";
+        character.textContent = guide.character?.trim() || "공용";
         platform.className = "guide-platform";
         platform.textContent = guide.platform;
         tags.className = "guide-tags";
-        tags.textContent = (guide.tags ?? []).filter(Boolean).join(" · ");
-        card.append(title, platform, tags);
+        const sortedTags = getSortedTags(guide.tags ?? []);
+        for (const tag of Array.from({ length: 5 }, (_, index) =>
+            sortedTags[index] ?? ""
+        )) {
+            const tagItem = document.createElement("span");
+            tagItem.className = `guide-tag guide-tag-${getTagGroup(tag)}`;
+            tagItem.textContent = tag;
+            tags.append(tagItem);
+        }
+        card.append(title, character, platform, tags);
         item.append(card);
         guideList.append(item);
     }

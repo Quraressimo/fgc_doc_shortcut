@@ -10,7 +10,7 @@ TAG_GROUPS = {
     "difficulty": {"~브론즈", "~골드", "~다이아", "~투신"},
     "situation": {"뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"},
     "location": {"개막", "구석", "근거리", "중거리", "원거리"},
-    "category": {"콤보", "셋업", "운영", "기초", "대처법"},
+    "category": {"콤보", "셋업", "운영", "기초", "대처법", "공용"},
     "type": {"텐션 50%", "텐션 100%"},
 }
 
@@ -20,7 +20,7 @@ def main() -> None:
         connection.row_factory = sqlite3.Row
         rows = connection.execute(
             """
-            SELECT id, url, chara, platform, tag1, tag2, tag3, tag4, tag5
+            SELECT id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5
             FROM guides
             ORDER BY id
             """
@@ -32,8 +32,12 @@ def main() -> None:
         guide = {
             "id": row["id"],
             "url": row["url"],
-            "title": f"{row['chara']} 공략",
-            "character": row["chara"],
+            "title": (
+                (row["title"] or "").strip()
+                or f"{(row['chara'] or '').strip()} 공략".strip()
+                or "공략"
+            ),
+            "character": (row["chara"] or "").strip() or "공용",
             "platform": row["platform"],
             "tags": tags,
         }

@@ -22,7 +22,7 @@ def main() -> None:
 
 		rows = conn.execute(
 			"""
-			SELECT id, url, chara, platform, tag1, tag2, tag3, tag4, tag5
+			SELECT id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5
 			FROM guides
 			ORDER BY id
 			"""
@@ -32,7 +32,9 @@ def main() -> None:
 	print(f"Total rows: {len(rows)}")
 	for row in rows:
 		print(
-			f"[{row['id']}] {row['chara']} | {row['platform']} | {row['url']} | "
+			f"[{row['id']}] "
+			f"{(row['title'] or '').strip() or (row['chara'] or '').strip() + ' 공략'} | "
+			f"{row['platform']} | {row['url']} | "
 			f"tags=({row['tag1']}, {row['tag2']}, {row['tag3']}, {row['tag4']}, {row['tag5']})"
 		)
 

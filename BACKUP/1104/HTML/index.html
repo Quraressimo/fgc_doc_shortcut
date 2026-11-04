@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공략바로가기</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- html 로드 완료 후 js 실행 -->
+    <script src="guides-data.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="page">
+        <header class="page-header">
+            <h1>공략 바로가기</h1>
+            <p>게임이나 캐릭터 이름으로 공략을 검색하세요.</p>
+        </header>
+
+        <section class="useful-links" aria-labelledby="useful-links-title">
+            <h2 id="useful-links-title">유용한 링크</h2>
+            <ul class="useful-link-list">
+                <li>
+                    <a href="https://www.guiltygear.com/ggst/en/" target="_blank" rel="noopener noreferrer">
+                        <strong>길티기어 공식 사이트</strong>
+                        <span>게임 소식과 업데이트 확인</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.dustloop.com/w/GGST" target="_blank" rel="noopener noreferrer">
+                        <strong>Dustloop Wiki</strong>
+                        <span>캐릭터별 기술과 프레임 데이터</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.guiltygear.com/ggst/en/news/" target="_blank" rel="noopener noreferrer">
+                        <strong>공식 뉴스</strong>
+                        <span>패치 노트와 개발자 소식</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://puddle.farm/ggst/" target="_blank" rel="noopener noreferrer">
+                        <strong>랭크 확인</strong>
+                        <span>캐릭터별 사용률 & 승률</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="guide-search" aria-labelledby="search-title">
+            <h2 id="search-title">공략 검색</h2>
+            <label for="tag-search-input">필터 항목 검색</label>
+            <input
+                type="search"
+                id="tag-search-input"
+                placeholder="캐릭터, 플랫폼, 태그 검색"
+                aria-controls="base-character-filter-list season-pass-1-filter-list season-pass-2-filter-list season-pass-3-filter-list season-pass-4-filter-list season-pass-5-filter-list platform-filter-list difficulty-filter-list situation-filter-list location-filter-list category-filter-list type-filter-list"
+            >
+
+            <fieldset class="tag-filters">
+                <p class="filter-help">각 항목에서 하나 이상 선택하면 해당 조건에 맞는 공략을 보여줍니다.</p>
+                <!-- 필터 목록은 script.js의 항목 데이터로 채웁니다. -->
+                <div class="subfilters">
+                    <fieldset id="character-filter-category" class="subfilter">
+                        <legend>캐릭터</legend>
+                        <div class="tag-subfilters">
+                            <fieldset class="tag-subfilter">
+                                <legend>기본 캐릭터</legend>
+                                <ul id="base-character-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset class="tag-subfilter">
+                                <legend>시즌 패스 1</legend>
+                                <ul id="season-pass-1-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset class="tag-subfilter">
+                                <legend>시즌 패스 2</legend>
+                                <ul id="season-pass-2-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset class="tag-subfilter">
+                                <legend>시즌 패스 3</legend>
+                                <ul id="season-pass-3-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset class="tag-subfilter">
+                                <legend>시즌 패스 4</legend>
+                                <ul id="season-pass-4-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset class="tag-subfilter">
+                                <legend>시즌 패스 5</legend>
+                                <ul id="season-pass-5-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                        </div>
+                    </fieldset>
+                    <fieldset id="platform-filter-category" class="subfilter">
+                        <legend>플랫폼</legend>
+                        <ul id="platform-filter-list" class="tag-filter-list"></ul>
+                    </fieldset>
+                    <fieldset id="tag-filter-category" class="subfilter">
+                        <legend>태그</legend>
+                        <div class="tag-subfilters">
+                            <fieldset id="difficulty-filter-group" class="tag-subfilter">
+                                <legend>난이도</legend>
+                                <ul id="difficulty-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset id="situation-filter-group" class="tag-subfilter">
+                                <legend>상황</legend>
+                                <ul id="situation-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset id="location-filter-group" class="tag-subfilter">
+                                <legend>위치</legend>
+                                <ul id="location-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset id="category-filter-group" class="tag-subfilter">
+                                <legend>분류</legend>
+                                <ul id="category-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                            <fieldset id="type-filter-group" class="tag-subfilter">
+                                <legend>유형</legend>
+                                <ul id="type-filter-list" class="tag-filter-list"></ul>
+                            </fieldset>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <p id="search-status" class="search-status" role="status" aria-live="polite">
+                해당하는 공략이 없습니다.
+            </p>
+            <ul id="guide-list" class="guide-list" aria-label="공략 목록"></ul>
+        </section>
+    </main>
+</body>
+</html>
