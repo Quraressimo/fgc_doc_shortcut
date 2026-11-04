@@ -320,7 +320,8 @@ function renderGuides() {
     if (guides.length === 0) {
         searchStatus.textContent = "등록된 공략이 없습니다.";
     } else if (!hasSelectedFilters) {
-        searchStatus.textContent = "필터를 선택하면 공략을 볼 수 있습니다.";
+        searchStatus.textContent =
+            `현재 저장된 공략은 ${guides.length}개입니다. 필터를 선택하면 공략을 확인할 수 있습니다.`;
     } else if (matchingGuides.length === 0) {
         searchStatus.textContent = "선택한 태그에 해당하는 공략이 없습니다.";
     } else {
