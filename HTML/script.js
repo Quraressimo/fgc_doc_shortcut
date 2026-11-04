@@ -1,6 +1,7 @@
 const tagSearchInput = document.querySelector("#tag-search-input");
 const guideList = document.querySelector("#guide-list");
 const searchStatus = document.querySelector("#search-status");
+const backToTopButton = document.querySelector("#back-to-top");
 
 // 시즌별 DLC 캐릭터 목록입니다.
 const seasonPassCharacters = {
@@ -328,5 +329,13 @@ function renderGuides() {
 }
 
 tagSearchInput.addEventListener("input", renderFilters);
+backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth"
+    });
+});
 renderFilters();
 renderGuides();

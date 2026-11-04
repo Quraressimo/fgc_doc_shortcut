@@ -214,6 +214,34 @@ body {
     margin: 16px 0 0;
 }
 
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #315fce;
+    color: #fff;
+    font: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(32 36 42 / 20%);
+}
+
+.back-to-top:hover {
+    background: #244da8;
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid #20242a;
+    outline-offset: 3px;
+}
+
 .guide-list {
     display: grid;
     gap: 12px;
@@ -270,13 +298,14 @@ body {
 }
 
 .guide-tags {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
 }
 
 .guide-tags span {
     display: block;
+    flex: 0 0 100px;
     padding: 4px 8px;
     border-radius: 999px;
     text-align: center;
@@ -307,10 +336,17 @@ body {
     color: #9d174d;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
     .guide-card {
         grid-template-columns: 1fr;
         gap: 6px;
         padding: 14px 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
     }
 }
