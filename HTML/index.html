@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- 한글 표시와 모바일 화면 대응을 위한 기본 문서 설정입니다. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공략바로가기</title>
+    <!-- 화면 레이아웃과 색상은 외부 스타일시트에서 관리합니다. -->
     <link rel="stylesheet" href="style.css">
-    <!-- html 로드 완료 후 js 실행 -->
+    <!-- DB에서 변환된 공략 데이터를 먼저 등록한 후 화면 로직을 실행합니다. -->
     <script src="guides-data.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- 페이지 전체를 감싸는 기본 레이아웃 컨테이너입니다. -->
     <main class="page">
         <header class="page-header">
             <h1>공략 바로가기</h1>
             <p>게임이나 캐릭터 이름으로 공략을 검색하세요.</p>
+            <button id="open-sql-generator" class="sql-toggle-button" type="button">
+                공략 추가
+            </button>
         </header>
 
+        <!-- 자주 참고하는 외부 사이트 링크를 카드 형태로 제공합니다. -->
         <section class="useful-links" aria-labelledby="useful-links-title">
             <h2 id="useful-links-title">유용한 링크</h2>
             <ul class="useful-link-list">
@@ -40,6 +47,76 @@
             </ul>
         </section>
 
+        <!-- 서버 없이 입력한 공략을 INSERT SQL로 변환하는 팝업입니다. -->
+        <dialog id="sql-generator-dialog" class="guide-sql-dialog">
+            <h2 id="sql-generator-title">공략 추가용 SQL 만들기</h2>
+            <button id="close-sql-generator" class="sql-dialog-close" type="button" aria-label="공략 추가 창 닫기">
+                ×
+            </button>
+            <p class="form-help">
+                정보를 입력한 뒤 생성된 SQL을 <code>DB\crud.sql</code>에 추가하세요.
+            </p>
+            <form id="guide-form">
+                <div class="guide-form-grid">
+                    <label>
+                        ID
+                        <input id="guide-id-input" type="number" min="0" value="0" required>
+                        <small class="form-help">플랫폼을 선택하면 해당 플랫폼의 ID 구간 시작 번호가 입력됩니다.</small>
+                    </label>
+                    <label>
+                        제목
+                        <input id="guide-title-input" type="text" required>
+                    </label>
+                    <label>
+                        URL
+                        <input id="guide-url-input" type="url" required>
+                    </label>
+                    <label>
+                        캐릭터
+                        <input id="guide-character-input" type="text" placeholder="공용이면 비워두세요">
+                    </label>
+                    <label>
+                        플랫폼
+                        <select id="guide-platform-input" required>
+                            <option value="YouTube">YouTube</option>
+                            <option value="X">X</option>
+                            <option value="dcinside">dcinside</option>
+                            <option value="아카라이브">아카라이브</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </label>
+                    <label>
+                        태그 1
+                        <input id="guide-tag-1-input" type="text" required>
+                    </label>
+                    <label>
+                        태그 2
+                        <input id="guide-tag-2-input" type="text">
+                    </label>
+                    <label>
+                        태그 3
+                        <input id="guide-tag-3-input" type="text">
+                    </label>
+                    <label>
+                        태그 4
+                        <input id="guide-tag-4-input" type="text">
+                    </label>
+                    <label>
+                        태그 5
+                        <input id="guide-tag-5-input" type="text">
+                    </label>
+                </div>
+                <button class="sql-generate-button" type="submit">INSERT SQL 생성</button>
+            </form>
+            <div class="sql-output-area" hidden>
+                <label for="sql-output">생성된 SQL</label>
+                <textarea id="sql-output" rows="4" readonly></textarea>
+                <button id="copy-sql-button" type="button">SQL 복사</button>
+                <p id="sql-status" class="form-help" role="status" aria-live="polite"></p>
+            </div>
+        </dialog>
+
+        <!-- 검색어 입력, 필터, 검색 결과를 포함하는 메인 기능 영역입니다. -->
         <section class="guide-search" aria-labelledby="search-title">
             <h2 id="search-title">공략 검색</h2>
             <label for="tag-search-input">필터 항목 검색</label>
@@ -52,8 +129,9 @@
 
             <fieldset class="tag-filters">
                 <p class="filter-help">각 항목에서 하나 이상 선택하면 해당 조건에 맞는 공략을 보여줍니다.</p>
-                <!-- 필터 목록은 script.js의 항목 데이터로 채웁니다. -->
+                <!-- 필터 항목은 script.js가 데이터와 DOM 요소를 연결해 동적으로 채웁니다. -->
                 <div class="subfilters">
+                    <!-- details를 사용해 캐릭터 필터 전체를 접거나 펼칠 수 있습니다. -->
                     <details id="character-filter-category" class="subfilter">
                         <summary>캐릭터</summary>
                         <div class="tag-subfilters">
@@ -83,10 +161,12 @@
                             </fieldset>
                         </div>
                     </details>
+                    <!-- 플랫폼 필터도 동일한 접기/펼치기 구조를 사용합니다. -->
                     <details id="platform-filter-category" class="subfilter">
                         <summary>플랫폼</summary>
                         <ul id="platform-filter-list" class="tag-filter-list"></ul>
                     </details>
+                    <!-- 태그 필터 안에는 난이도, 분류, 상황, 위치, 유형이 포함됩니다. -->
                     <details id="tag-filter-category" class="subfilter">
                         <summary>태그</summary>
                         <div class="tag-subfilters">
@@ -115,12 +195,22 @@
                 </div>
             </fieldset>
 
+            <label class="guide-title-search-label" for="guide-title-search-input">공략 제목 검색</label>
+            <input
+                type="search"
+                id="guide-title-search-input"
+                placeholder="공략 제목을 입력하세요"
+                aria-controls="guide-list"
+            >
+
             <p id="search-status" class="search-status" role="status" aria-live="polite">
                 해당하는 공략이 없습니다.
             </p>
+            <!-- 선택된 필터에 맞는 공략 카드가 script.js에 의해 추가됩니다. -->
             <ul id="guide-list" class="guide-list" aria-label="공략 목록"></ul>
         </section>
     </main>
+    <!-- 긴 결과 목록을 본 뒤 페이지 상단으로 돌아가기 위한 고정 버튼입니다. -->
     <button id="back-to-top" class="back-to-top" type="button" aria-label="화면 맨 위로 이동" title="맨 위로 이동">
         ↑
     </button>
