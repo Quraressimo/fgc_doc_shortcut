@@ -58,6 +58,25 @@ def main() -> None:
 
     # JavaScript가 file:// 환경에서 직접 읽을 수 있도록 전역 변수 대입문으로 저장합니다.
     data = json.dumps(guides, ensure_ascii=False, indent=4)
+    for guide in guides:
+        for field_name in ("tags", *TAG_GROUPS):
+            values = guide[field_name]
+            if not values:
+                continue
+
+            formatted_array = (
+                f'"{field_name}": [\n'
+                + ",\n".join(
+                    f"            {json.dumps(value, ensure_ascii=False)}"
+                    for value in values
+                )
+                + "\n        ]"
+            )
+            compact_array = (
+                f'"{field_name}": {json.dumps(values, ensure_ascii=False)}'
+            )
+            data = data.replace(formatted_array, compact_array, 1)
+
     OUTPUT_PATH.write_text(f"window.GUIDES = {data};\n", encoding="utf-8")
     print(f"Exported {len(guides)} guides to {OUTPUT_PATH}")
 

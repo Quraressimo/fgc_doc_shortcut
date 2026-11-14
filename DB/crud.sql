@@ -47,7 +47,11 @@ INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag
 	-- 시즌 패스 5 스타터 가이드
 	(33, 'https://youtu.be/MIJwA7Pu9Ns', '쿠라도베리 잼 스타터 가이드', '쿠라도베리 잼', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(34, 'https://youtu.be/NdGQ7YGBHOw', '로보카이 스타터 가이드', '로보카이', 'YouTube', '기초', '~브론즈', '운영', '', '');
-	
+
+-- 디씨
+INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
+	(2000, 'https://gall.dcinside.com/guiltygear/534733', '[공략대회] 광물단이 말아주는 잼 공략', '쿠라도베리 잼', 'dcinside', '~다이아', '운영', '기초', '뉴트럴', '콤보');
+
 -- 아카
 INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
 	(3000, 'https://arca.live/b/fightgame/182500955', '개격븽의 격겜학개론) 옵션 셀렉트', '', '아카라이브', '공용', '~다이아', '셋업', '대처법', '기상');

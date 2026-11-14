@@ -152,8 +152,60 @@ body {
 
 .guide-form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
+}
+
+.guide-form-id,
+.guide-form-platform,
+.guide-form-title,
+.guide-form-url,
+.guide-form-character,
+.guide-form-tag-1 {
+    grid-column: span 2;
+}
+
+.guide-form-id,
+.guide-form-platform {
+    grid-row: 1;
+}
+
+.guide-form-title,
+.guide-form-url {
+    grid-row: 2;
+}
+
+.guide-form-character,
+.guide-form-tag-1 {
+    grid-row: 3;
+}
+
+.guide-form-tag-2,
+.guide-form-tag-3,
+.guide-form-tag-4,
+.guide-form-tag-5 {
+    grid-row: 4;
+}
+
+.guide-form-tag-2 {
+    grid-column: 1;
+}
+
+.guide-form-tag-3 {
+    grid-column: 2;
+}
+
+.guide-form-tag-4 {
+    grid-column: 3;
+}
+
+.guide-form-tag-5 {
+    grid-column: 4;
+}
+
+.required-marker {
+    color: #dc2626;
+    font-weight: 700;
 }
 
 .guide-form-grid label,
@@ -162,6 +214,51 @@ body {
     gap: 6px;
     color: #20242a;
     font-weight: 600;
+}
+
+.guide-form-grid label {
+    position: relative;
+    align-content: start;
+}
+
+.guide-autocomplete-list {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    display: grid;
+    gap: 4px;
+    max-height: 144px;
+    margin: -2px 0 0;
+    padding: 4px;
+    overflow-y: auto;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+    background: #fff;
+    list-style: none;
+}
+
+.guide-autocomplete-list[hidden] {
+    display: none;
+}
+
+.guide-autocomplete-option {
+    width: 100%;
+    padding: 6px 8px;
+    border: 0;
+    border-radius: 4px;
+    background: #fff;
+    color: #20242a;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.guide-autocomplete-option:hover,
+.guide-autocomplete-option:focus-visible {
+    background: #eef2fb;
+    outline: none;
 }
 
 .guide-form-grid input,
@@ -532,6 +629,15 @@ body {
 
 /* 작은 화면에서는 상단 이동 버튼의 위치를 줄입니다. */
 @media (max-width: 640px) {
+    .guide-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .guide-form-grid > label {
+        grid-row: auto;
+        grid-column: auto;
+    }
+
     .back-to-top {
         right: 16px;
         bottom: 16px;

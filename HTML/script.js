@@ -14,7 +14,12 @@ const SQL_GENERATOR_DIALOG = document.querySelector("#sql-generator-dialog");
 const OPEN_SQL_GENERATOR_BUTTON = document.querySelector("#open-sql-generator");
 const CLOSE_SQL_GENERATOR_BUTTON = document.querySelector("#close-sql-generator");
 const GUIDE_ID_INPUT = document.querySelector("#guide-id-input");
+const GUIDE_ID_HELP = document.querySelector("#guide-id-help");
 const GUIDE_PLATFORM_INPUT = document.querySelector("#guide-platform-input");
+const GUIDE_CHARACTER_INPUT = document.querySelector("#guide-character-input");
+const GUIDE_TAG_INPUTS = [1, 2, 3, 4, 5].map((index) =>
+    document.querySelector(`#guide-tag-${index}-input`)
+);
 
 // 플랫폼별 ID 구간의 시작 번호입니다. 같은 구간 안에서 뒤의 번호는 직접 조정합니다.
 const PLATFORM_ID_PREFIXES = {
@@ -24,6 +29,7 @@ const PLATFORM_ID_PREFIXES = {
     아카라이브: 3000,
     기타: 9000
 };
+const PLATFORM_ID_RANGE_SIZE = 1000;
 
 // 캐릭터 필터의 분류 기준입니다. 공략 데이터의 캐릭터도 이 기준으로 분류합니다.
 const CHARACTER_GROUPS = {
@@ -112,6 +118,36 @@ const FILTER_GROUPS = {
 // 데이터가 없거나 파일이 로드되지 않은 경우 빈 배열로 안전하게 시작합니다.
 let guides = Array.isArray(window.GUIDES) ? window.GUIDES : [];
 
+function getNextAvailableGuideId(platform) {
+    const rangeStart = PLATFORM_ID_PREFIXES[platform];
+    const usedIds = new Set(
+        guides.map((guide) => Number(guide.id)).filter((id) => Number.isInteger(id))
+    );
+
+    for (let id = rangeStart; id < rangeStart + PLATFORM_ID_RANGE_SIZE; id++) {
+        if (!usedIds.has(id)) {
+            return id;
+        }
+    }
+
+    return null;
+}
+
+function updateGuideIdForPlatform() {
+    const nextId = getNextAvailableGuideId(GUIDE_PLATFORM_INPUT.value);
+
+    if (nextId === null) {
+        GUIDE_ID_INPUT.value = "";
+        GUIDE_ID_INPUT.setCustomValidity("선택한 플랫폼의 ID 구간에 빈 번호가 없습니다.");
+        GUIDE_ID_HELP.textContent = "이 플랫폼의 ID 구간에 빈 번호가 없습니다.";
+        return;
+    }
+
+    GUIDE_ID_INPUT.value = String(nextId);
+    GUIDE_ID_INPUT.setCustomValidity("");
+    GUIDE_ID_HELP.textContent = "플랫폼을 선택하면 로드된 DB 데이터 기준 최소 빈 ID를 입력합니다.";
+}
+
 // 선택된 필터는 검색 입력값과 별도로 보존합니다.
 // 같은 그룹의 선택지는 OR, 서로 다른 그룹의 선택지는 AND 조건으로 사용됩니다.
 const SELECTED_FILTERS = {
@@ -140,6 +176,63 @@ const TAG_GROUPS = {
     type: new Set(["텐션 50%", "텐션 100%"])
 };
 const TAG_GROUP_ORDER = ["difficulty", "category", "situation", "location", "type"];
+const GUIDE_CHARACTER_OPTIONS = [...new Set([
+    ...Object.values(CHARACTER_GROUPS).flat(),
+    ...guides.map((guide) => guide.character?.trim()).filter(Boolean)
+])];
+const GUIDE_TAG_OPTIONS = [...new Set([
+    ...TAG_GROUP_ORDER.flatMap((groupName) => [...TAG_GROUPS[groupName]]),
+    ...guides.flatMap((guide) => guide.tags ?? [])
+])].filter(Boolean);
+
+function renderAutocompleteSuggestions(input, list, options) {
+    const query = input.value.trim().toLocaleLowerCase();
+    const matchingOptions = query
+        ? options.filter((option) => {
+            const normalizedOption = option.toLocaleLowerCase();
+            return normalizedOption.includes(query) && normalizedOption !== query;
+        }).slice(0, 8)
+        : [];
+
+    list.replaceChildren();
+    list.hidden = matchingOptions.length === 0;
+    input.setAttribute("aria-expanded", String(!list.hidden));
+
+    for (const option of matchingOptions) {
+        const item = document.createElement("li");
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "guide-autocomplete-option";
+        button.textContent = option;
+        button.addEventListener("mousedown", (event) => event.preventDefault());
+        button.addEventListener("click", () => {
+            input.value = option;
+            input.dispatchEvent(new Event("input", { bubbles: true }));
+            input.focus();
+        });
+
+        item.append(button);
+        list.append(item);
+    }
+}
+
+function setupAutocomplete(input, list, options) {
+    const hideIfUnfocused = () => {
+        window.setTimeout(() => {
+            if (document.activeElement !== input && !list.contains(document.activeElement)) {
+                list.hidden = true;
+                input.setAttribute("aria-expanded", "false");
+            }
+        }, 0);
+    };
+
+    input.addEventListener("input", () =>
+        renderAutocompleteSuggestions(input, list, options)
+    );
+    input.addEventListener("blur", hideIfUnfocused);
+    list.addEventListener("focusout", hideIfUnfocused);
+}
 
 // 하나의 태그가 속한 그룹 이름을 반환합니다.
 // 알 수 없는 값은 other로 분류해 렌더링이 중단되지 않게 합니다.
@@ -425,7 +518,20 @@ function renderGuides() {
 TAG_SEARCH_INPUT.addEventListener("input", renderFilters);
 GUIDE_TITLE_SEARCH_INPUT.addEventListener("input", renderGuides);
 GUIDE_PLATFORM_INPUT.addEventListener("change", () => {
-    GUIDE_ID_INPUT.value = PLATFORM_ID_PREFIXES[GUIDE_PLATFORM_INPUT.value];
+    updateGuideIdForPlatform();
+});
+updateGuideIdForPlatform();
+setupAutocomplete(
+    GUIDE_CHARACTER_INPUT,
+    document.querySelector("#guide-character-suggestions"),
+    GUIDE_CHARACTER_OPTIONS
+);
+GUIDE_TAG_INPUTS.forEach((input, index) => {
+    setupAutocomplete(
+        input,
+        document.querySelector(`#guide-tag-${index + 1}-suggestions`),
+        GUIDE_TAG_OPTIONS
+    );
 });
 OPEN_SQL_GENERATOR_BUTTON.addEventListener("click", () => {
     SQL_GENERATOR_DIALOG.showModal();

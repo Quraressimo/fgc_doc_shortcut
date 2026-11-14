@@ -58,24 +58,12 @@
             </p>
             <form id="guide-form">
                 <div class="guide-form-grid">
-                    <label>
-                        ID
+                    <label class="guide-form-id">
+                        <span>ID <span class="required-marker" aria-hidden="true">*</span></span>
                         <input id="guide-id-input" type="number" min="0" value="0" required>
-                        <small class="form-help">플랫폼을 선택하면 해당 플랫폼의 ID 구간 시작 번호가 입력됩니다.</small>
+                        <small id="guide-id-help" class="form-help">로드된 DB 데이터에서 플랫폼의 최소 빈 ID를 입력합니다.</small>
                     </label>
-                    <label>
-                        제목
-                        <input id="guide-title-input" type="text" required>
-                    </label>
-                    <label>
-                        URL
-                        <input id="guide-url-input" type="url" required>
-                    </label>
-                    <label>
-                        캐릭터
-                        <input id="guide-character-input" type="text" placeholder="공용이면 비워두세요">
-                    </label>
-                    <label>
+                    <label class="guide-form-platform">
                         플랫폼
                         <select id="guide-platform-input" required>
                             <option value="YouTube">YouTube</option>
@@ -85,25 +73,50 @@
                             <option value="기타">기타</option>
                         </select>
                     </label>
-                    <label>
-                        태그 1
-                        <input id="guide-tag-1-input" type="text" required>
+                    <label class="guide-form-title">
+                        <span>제목 <span class="required-marker" aria-hidden="true">*</span></span>
+                        <input id="guide-title-input" type="text" required>
                     </label>
-                    <label>
+                    <label class="guide-form-url">
+                        <span>URL <span class="required-marker" aria-hidden="true">*</span></span>
+                        <input id="guide-url-input" type="url" required>
+                    </label>
+                    <label class="guide-form-character">
+                        캐릭터
+                        <input
+                            id="guide-character-input"
+                            type="text"
+                            placeholder="공용이면 비워두세요"
+                            aria-autocomplete="list"
+                            aria-controls="guide-character-suggestions"
+                            aria-expanded="false"
+                        >
+                        <ul id="guide-character-suggestions" class="guide-autocomplete-list" aria-label="캐릭터 완성 후보" hidden></ul>
+                    </label>
+                    <label class="guide-form-tag-1">
+                        <span>태그 1 <span class="required-marker" aria-hidden="true">*</span></span>
+                        <input id="guide-tag-1-input" type="text" required aria-autocomplete="list" aria-controls="guide-tag-1-suggestions" aria-expanded="false">
+                        <ul id="guide-tag-1-suggestions" class="guide-autocomplete-list" aria-label="태그 완성 후보" hidden></ul>
+                    </label>
+                    <label class="guide-form-tag-2">
                         태그 2
-                        <input id="guide-tag-2-input" type="text">
+                        <input id="guide-tag-2-input" type="text" aria-autocomplete="list" aria-controls="guide-tag-2-suggestions" aria-expanded="false">
+                        <ul id="guide-tag-2-suggestions" class="guide-autocomplete-list" aria-label="태그 완성 후보" hidden></ul>
                     </label>
-                    <label>
+                    <label class="guide-form-tag-3">
                         태그 3
-                        <input id="guide-tag-3-input" type="text">
+                        <input id="guide-tag-3-input" type="text" aria-autocomplete="list" aria-controls="guide-tag-3-suggestions" aria-expanded="false">
+                        <ul id="guide-tag-3-suggestions" class="guide-autocomplete-list" aria-label="태그 완성 후보" hidden></ul>
                     </label>
-                    <label>
+                    <label class="guide-form-tag-4">
                         태그 4
-                        <input id="guide-tag-4-input" type="text">
+                        <input id="guide-tag-4-input" type="text" aria-autocomplete="list" aria-controls="guide-tag-4-suggestions" aria-expanded="false">
+                        <ul id="guide-tag-4-suggestions" class="guide-autocomplete-list" aria-label="태그 완성 후보" hidden></ul>
                     </label>
-                    <label>
+                    <label class="guide-form-tag-5">
                         태그 5
-                        <input id="guide-tag-5-input" type="text">
+                        <input id="guide-tag-5-input" type="text" aria-autocomplete="list" aria-controls="guide-tag-5-suggestions" aria-expanded="false">
+                        <ul id="guide-tag-5-suggestions" class="guide-autocomplete-list" aria-label="태그 완성 후보" hidden></ul>
                     </label>
                 </div>
                 <button class="sql-generate-button" type="submit">INSERT SQL 생성</button>
