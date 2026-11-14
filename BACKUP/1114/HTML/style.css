@@ -1,0 +1,539 @@
+* {
+    /* padding과 border를 요소의 전체 크기에 포함해 레이아웃 계산을 단순화합니다. */
+    box-sizing: border-box;
+}
+
+/* 페이지 전체의 기본 색상, 글꼴, 브라우저별 여백을 설정합니다. */
+body {
+    margin: 0;
+    background: #f5f6f8;
+    color: #20242a;
+    font-family: Arial, "Malgun Gothic", sans-serif;
+    overflow-y: scroll;
+}
+
+/* 페이지 콘텐츠의 좌우 여백을 화면 너비에 따라 유연하게 조절합니다. */
+.page {
+    width: 100%;
+    padding: 32px clamp(12px, 4vw, 32px);
+}
+
+/* 상단 제목과 설명 영역 사이에 여백을 둡니다. */
+.page-header {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.sql-toggle-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #315fce;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.sql-toggle-button:hover,
+.sql-toggle-button:focus-visible {
+    background: #244da8;
+}
+
+.sql-toggle-button:focus-visible,
+.sql-dialog-close:focus-visible {
+    outline: 2px solid #20242a;
+    outline-offset: 3px;
+}
+
+/* 공략 추가 폼은 평소에는 숨기고 버튼으로 연 모달 안에서만 표시합니다. */
+.guide-sql-dialog {
+    position: fixed;
+    width: min(720px, calc(100% - 24px));
+    max-height: calc(100% - 24px);
+    margin: auto;
+    padding: 24px;
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    background: #fff;
+    color: #20242a;
+}
+
+.guide-sql-dialog::backdrop {
+    background: rgb(32 36 42 / 45%);
+}
+
+.guide-sql-dialog h2 {
+    margin: 0 36px 8px 0;
+}
+
+.sql-dialog-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #5b6470;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sql-dialog-close:hover {
+    background: #f5f6f8;
+}
+
+/* 공식 사이트 등 외부 링크 카드 영역입니다. */
+.useful-links {
+    margin-bottom: 24px;
+}
+
+.useful-links h2 {
+    margin: 0 0 12px;
+}
+
+/* 링크 카드가 화면 너비에 맞춰 자동으로 열을 나누도록 합니다. */
+.useful-link-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* 외부 링크를 클릭 가능한 카드처럼 보이게 합니다. */
+.useful-link-list a {
+    display: grid;
+    gap: 6px;
+    height: 100%;
+    padding: 14px;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+    background: #fff;
+    color: #244da8;
+    text-decoration: none;
+}
+
+/* 키보드 포커스와 마우스 오버 시 카드의 경계를 강조합니다. */
+.useful-link-list a:hover,
+.useful-link-list a:focus-visible {
+    border-color: #315fce;
+}
+
+.useful-link-list span {
+    color: #5b6470;
+    font-size: 0.9rem;
+}
+
+.page-header h1 {
+    margin: 0 0 8px;
+}
+
+.page-header p,
+.filter-help,
+.empty-tag-message,
+.search-status {
+    color: #5b6470;
+}
+
+.guide-search > h2 {
+    margin: 0 0 16px;
+}
+
+.form-help {
+    margin: 0 0 12px;
+    color: #5b6470;
+}
+
+.guide-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.guide-form-grid label,
+.sql-output-area label {
+    display: grid;
+    gap: 6px;
+    color: #20242a;
+    font-weight: 600;
+}
+
+.guide-form-grid input,
+.guide-form-grid select,
+.sql-output-area textarea {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 10px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.guide-form-grid input:focus,
+.guide-form-grid select:focus,
+.sql-output-area textarea:focus {
+    outline: 2px solid #315fce;
+}
+
+.sql-generate-button,
+#copy-sql-button {
+    margin-top: 16px;
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #315fce;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.sql-generate-button:hover,
+#copy-sql-button:hover {
+    background: #244da8;
+}
+
+.sql-output-area {
+    margin-top: 16px;
+}
+
+.sql-output-area textarea {
+    display: block;
+    min-height: 96px;
+    margin-top: 6px;
+    resize: vertical;
+    font-family: Consolas, monospace;
+}
+
+#copy-sql-button {
+    margin-top: 8px;
+}
+
+/* 검색 입력창은 부모 너비를 모두 사용합니다. */
+#tag-search-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    font: inherit;
+}
+
+#tag-search-input:focus {
+    outline: 2px solid #315fce;
+}
+
+/* 제목 검색은 필터와 결과 목록 사이에서 별도로 공략 제목만 검색합니다. */
+.guide-title-search-label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+#guide-title-search-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    font: inherit;
+}
+
+#guide-title-search-input:focus {
+    outline: 2px solid #315fce;
+}
+
+/* details와 내부 필터의 기본 여백을 초기화합니다. */
+.tag-filters,
+.subfilter,
+.tag-subfilter {
+    min-width: 0;
+    margin: 0;
+}
+
+/* 필터 그룹은 간격을 유지하는 grid 레이아웃으로 배치합니다. */
+.tag-filters,
+.subfilter,
+.subfilters {
+    display: grid;
+    gap: 12px;
+}
+
+/* grid 레이아웃에서도 hidden 상태인 필터를 확실히 숨깁니다. */
+/* JavaScript가 hidden을 설정한 그룹은 grid에서도 확실히 숨깁니다. */
+.subfilter[hidden],
+.tag-subfilter[hidden] {
+    display: none;
+}
+
+/* 브라우저 기본 fieldset 테두리와 여백을 제거합니다. */
+.tag-filters,
+.subfilter,
+.tag-subfilter {
+    padding: 0;
+    border: 0;
+}
+
+/* 캐릭터·플랫폼·태그 같은 상위 필터 그룹의 카드 모양입니다. */
+.subfilter {
+    padding: 12px;
+    border: 1px solid #d5dbe3;
+    border-radius: 6px;
+}
+
+/* details의 제목은 접기/펼치기 가능한 컨트롤처럼 표시합니다. */
+.subfilter > summary {
+    padding: 0 6px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 접기 상태를 나타내는 삼각형의 강조 색상입니다. */
+.subfilter > summary::marker {
+    color: #315fce;
+}
+
+/* 키보드로 summary를 선택했을 때 현재 위치를 보여줍니다. */
+.subfilter > summary:focus-visible {
+    outline: 2px solid #315fce;
+    outline-offset: 2px;
+}
+
+.subfilters,
+.tag-subfilters {
+    margin-top: 12px;
+}
+
+.tag-subfilters {
+    display: grid;
+    gap: 12px;
+}
+
+.filter-help {
+    margin: 0;
+}
+
+/* 필터 목록과 공략 목록의 기본 목록 기호와 여백을 제거합니다. */
+.tag-filter-list,
+.guide-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* 체크박스 대신 사용하는 필터 토글 버튼의 기본 모양입니다. */
+.filter-option {
+    padding: 6px 12px;
+    border: 1px solid #b9c1cb;
+    border-radius: 999px;
+    background: #fff;
+    color: #20242a;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+/* 토글 버튼에 마우스를 올리거나 키보드 포커스를 둔 상태입니다. */
+.filter-option:hover,
+.filter-option:focus-visible {
+    border-color: #315fce;
+    outline: none;
+}
+
+/* aria-pressed가 true인 선택 상태를 시각적으로 표시합니다. */
+.filter-option[aria-pressed="true"] {
+    border-color: #315fce;
+    background: #315fce;
+    color: #fff;
+}
+
+/* 필터 종류별 기본 테두리 색상입니다. */
+.filter-option-character {
+    border-color: #93c5fd;
+}
+
+.filter-option-platform {
+    border-color: #86efac;
+}
+
+.filter-option-difficulty {
+    border-color: #fbbf24;
+}
+
+.filter-option-category {
+    border-color: #c4b5fd;
+}
+
+.filter-option-situation {
+    border-color: #6ee7b7;
+}
+
+.filter-option-location {
+    border-color: #93c5fd;
+}
+
+.filter-option-type {
+    border-color: #f9a8d4;
+}
+
+/* 검색 결과가 없거나 선택 안내를 표시하는 상태 문구입니다. */
+.search-status {
+    margin: 16px 0 0;
+}
+
+/* 긴 페이지에서 언제든 상단으로 이동할 수 있는 고정 버튼입니다. */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #315fce;
+    color: #fff;
+    font: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(32 36 42 / 20%);
+}
+
+.back-to-top:hover {
+    background: #244da8;
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid #20242a;
+    outline-offset: 3px;
+}
+
+/* 공략 카드 목록은 결과 수가 적어도 일정한 하단 높이를 유지합니다. */
+.guide-list {
+    display: grid;
+    gap: 12px;
+    min-height: 240px;
+    margin-top: 12px;
+}
+
+/* 공략 하나를 전체 클릭 가능한 카드로 표시합니다. */
+.guide-card {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(120px, 0.6fr) minmax(100px, 0.45fr) minmax(420px, 2fr);
+    gap: 16px;
+    align-items: center;
+    min-height: 72px;
+    padding: 16px 20px;
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* 카드 위에 마우스를 올리거나 포커스했을 때 상호작용을 강조합니다. */
+.guide-card:hover,
+.guide-card:focus-visible {
+    border-color: #315fce;
+    box-shadow: 0 2px 8px rgb(32 36 42 / 12%);
+    outline: none;
+}
+
+/* 카드 첫 번째 열의 제목 링크 스타일입니다. */
+.guide-card .guide-link {
+    display: block;
+    color: #244da8;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.guide-card:hover .guide-link,
+.guide-card:focus-visible .guide-link {
+    color: #244da8;
+    text-decoration: underline;
+}
+
+.guide-character,
+/* 태그는 그룹 순서에 맞춘 배지 목록으로 배치됩니다. */
+.guide-tags {
+    color: #5b6470;
+    line-height: 1.5;
+}
+
+.guide-character,
+.guide-platform {
+    font-weight: 600;
+}
+
+.guide-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+/* 각 태그 배지는 같은 너비와 둥근 모양을 사용합니다. */
+.guide-tags span {
+    display: block;
+    flex: 0 0 100px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    text-align: center;
+}
+
+/* 결과 태그 그룹별 배경색입니다. */
+.guide-tag-difficulty {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.guide-tag-category {
+    background: #ede9fe;
+    color: #5b21b6;
+}
+
+.guide-tag-situation {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.guide-tag-location {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.guide-tag-type {
+    background: #fce7f3;
+    color: #9d174d;
+}
+
+/* 중간 화면에서는 카드 열을 세로로 바꿔 내용이 겹치지 않게 합니다. */
+@media (max-width: 1200px) {
+    .guide-card {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 14px 16px;
+    }
+}
+
+/* 작은 화면에서는 상단 이동 버튼의 위치를 줄입니다. */
+@media (max-width: 640px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+    }
+}
