@@ -54,6 +54,7 @@ INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag
 
 --기타
 INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
+    -- 더스트루프 링크
 	(9000, 'https://www.dustloop.com/w/GGST/Sol_Badguy', '솔 배드가이 Dustloop', '솔 배드가이', '기타', '대처법', '~투신', '기초', '', ''),
 	(9001, 'https://www.dustloop.com/w/GGST/Ky_Kiske', '카이 키스크 Dustloop', '카이 키스크', '기타', '대처법', '~투신', '기초', '', ''),
 	(9002, 'https://www.dustloop.com/w/GGST/May', '메이 Dustloop', '메이', '기타', '대처법', '~투신', '기초', '', ''),
