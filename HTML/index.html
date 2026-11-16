@@ -137,7 +137,7 @@
                 type="search"
                 id="tag-search-input"
                 placeholder="캐릭터, 플랫폼, 태그 검색"
-                aria-controls="base-character-filter-list season-pass-1-filter-list season-pass-2-filter-list season-pass-3-filter-list season-pass-4-filter-list season-pass-5-filter-list platform-filter-list difficulty-filter-list situation-filter-list location-filter-list category-filter-list type-filter-list"
+                aria-controls="base-character-filter-list season-pass-1-filter-list season-pass-2-filter-list season-pass-3-filter-list season-pass-4-filter-list season-pass-5-filter-list platform-filter-list tag-filter-subfilters"
             >
 
             <fieldset class="tag-filters">
@@ -179,31 +179,10 @@
                         <summary>플랫폼</summary>
                         <ul id="platform-filter-list" class="tag-filter-list"></ul>
                     </details>
-                    <!-- 태그 필터 안에는 난이도, 분류, 상황, 위치, 유형이 포함됩니다. -->
+                    <!-- 태그 하위 필터는 guides-data.js 설정을 기준으로 동적으로 생성합니다. -->
                     <details id="tag-filter-category" class="subfilter">
                         <summary>태그</summary>
-                        <div class="tag-subfilters">
-                            <fieldset id="difficulty-filter-group" class="tag-subfilter">
-                                <legend>난이도</legend>
-                                <ul id="difficulty-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset id="category-filter-group" class="tag-subfilter">
-                                <legend>분류</legend>
-                                <ul id="category-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset id="situation-filter-group" class="tag-subfilter">
-                                <legend>상황</legend>
-                                <ul id="situation-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset id="location-filter-group" class="tag-subfilter">
-                                <legend>위치</legend>
-                                <ul id="location-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>                            
-                            <fieldset id="type-filter-group" class="tag-subfilter">
-                                <legend>유형</legend>
-                                <ul id="type-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                        </div>
+                        <div id="tag-filter-subfilters" class="tag-subfilters"></div>
                     </details>
                 </div>
             </fieldset>

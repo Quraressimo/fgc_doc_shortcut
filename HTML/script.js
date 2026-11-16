@@ -20,6 +20,26 @@ const GUIDE_CHARACTER_INPUT = document.querySelector("#guide-character-input");
 const GUIDE_TAG_INPUTS = [1, 2, 3, 4, 5].map((index) =>
     document.querySelector(`#guide-tag-${index}-input`)
 );
+const TAG_GROUPS = window.GUIDE_CONFIG.tagGroups;
+const TAG_GROUP_ORDER = Object.keys(TAG_GROUPS);
+
+const TAG_FILTER_SUBFILTERS = Object.entries(TAG_GROUPS).map(
+    ([key, { label, tags }]) => {
+        const container = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        const list = document.createElement("ul");
+
+        container.id = `${key}-filter-group`;
+        container.className = "tag-subfilter";
+        legend.textContent = label;
+        list.id = `${key}-filter-list`;
+        list.className = "tag-filter-list";
+        container.append(legend, list);
+        document.querySelector("#tag-filter-subfilters").append(container);
+
+        return { key, container, list, options: tags };
+    }
+);
 
 // 플랫폼별 ID 구간의 시작 번호입니다. 같은 구간 안에서 뒤의 번호는 직접 조정합니다.
 const PLATFORM_ID_PREFIXES = {
@@ -77,40 +97,7 @@ const FILTER_GROUPS = {
     tags: {
         // 태그 전체 그룹 내부에 난이도·분류·상황·위치·유형 하위 그룹이 있습니다.
         container: document.querySelector("#tag-filter-category"),
-        list: document.querySelector("#tag-filter-list"),
-        options: [],
-        subfilters: [
-            {
-                key: "difficulty",
-                container: document.querySelector("#difficulty-filter-group"),
-                list: document.querySelector("#difficulty-filter-list"),
-                options: ["~브론즈", "~골드", "~다이아", "~투신"]
-            },
-            {
-                key: "category",
-                container: document.querySelector("#category-filter-group"),
-                list: document.querySelector("#category-filter-list"),
-                options: ["콤보", "셋업", "운영", "기초", "대처법", "공용"]
-            },
-            {
-                key: "situation",
-                container: document.querySelector("#situation-filter-group"),
-                list: document.querySelector("#situation-filter-list"),
-                options: ["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]
-            },
-            {
-                key: "location",
-                container: document.querySelector("#location-filter-group"),
-                list: document.querySelector("#location-filter-list"),
-                options: ["개막", "구석", "근거리", "중거리", "원거리"]
-            },
-            {
-                key: "type",
-                container: document.querySelector("#type-filter-group"),
-                list: document.querySelector("#type-filter-list"),
-                options: ["텐션 50%", "텐션 100%"]
-            }
-        ]
+        subfilters: TAG_FILTER_SUBFILTERS
     }
 };
 
@@ -153,12 +140,7 @@ function updateGuideIdForPlatform() {
 const SELECTED_FILTERS = {
     character: new Set(),
     platform: new Set(),
-    tags: new Set(),
-    difficulty: new Set(),
-    situation: new Set(),
-    location: new Set(),
-    category: new Set(),
-    type: new Set()
+    ...Object.fromEntries(TAG_GROUP_ORDER.map((groupName) => [groupName, new Set()]))
 };
 
 // 검색을 시작하기 전 details의 접힘/펼침 상태를 임시 저장합니다.
@@ -166,22 +148,12 @@ const SELECTED_FILTERS = {
 let filterOpenStateBeforeSearch = null;
 let previousSearchQuery = "";
 
-// 결과 카드의 태그를 어떤 필터 그룹으로 볼지 정의합니다.
-// 색상 클래스와 결과 표시 순서도 이 분류를 사용합니다.
-const TAG_GROUPS = {
-    difficulty: new Set(["~브론즈", "~골드", "~다이아", "~투신"]),
-    category: new Set(["콤보", "셋업", "운영", "기초", "대처법", "공용"]),
-    situation: new Set(["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]),
-    location: new Set(["개막", "구석", "근거리", "중거리", "원거리"]),
-    type: new Set(["텐션 50%", "텐션 100%"])
-};
-const TAG_GROUP_ORDER = ["difficulty", "category", "situation", "location", "type"];
 const GUIDE_CHARACTER_OPTIONS = [...new Set([
     ...Object.values(CHARACTER_GROUPS).flat(),
     ...guides.map((guide) => guide.character?.trim()).filter(Boolean)
 ])];
 const GUIDE_TAG_OPTIONS = [...new Set([
-    ...TAG_GROUP_ORDER.flatMap((groupName) => [...TAG_GROUPS[groupName]]),
+    ...TAG_GROUP_ORDER.flatMap((groupName) => TAG_GROUPS[groupName].tags),
     ...guides.flatMap((guide) => guide.tags ?? [])
 ])].filter(Boolean);
 
@@ -238,7 +210,7 @@ function setupAutocomplete(input, list, options) {
 // 알 수 없는 값은 other로 분류해 렌더링이 중단되지 않게 합니다.
 function getTagGroup(tag) {
     return Object.entries(TAG_GROUPS)
-        .find(([, options]) => options.has(tag))?.[0] ?? "other";
+        .find(([, group]) => group.tags.includes(tag))?.[0] ?? "other";
 }
 
 // DB 입력 순서와 관계없이 결과 태그를 화면 표시 순서로 정렬합니다.

@@ -84,3 +84,7 @@ db와 예시 등등을 추가해 실제 검색이 되게 해봤습니다.
     - SQL 생성 폼과 검색에 쓰는 요소 이름을 정리
     - SQL 파일에 Dustloop 링크 구분 주석을 추가
     - README의 DB 갱신 및 조회 방법을 수정
+
+# 11월 16일 월
+
+- That won't make it in time for this schedule
