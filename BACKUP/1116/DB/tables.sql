@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS guides (
+	id INTEGER PRIMARY KEY,
+	url TEXT NOT NULL,
+	title TEXT DEFAULT '',
+	chara TEXT,
+	platform TEXT,
+	tag1 TEXT NOT NULL CHECK (TRIM(tag1) <> ''),
+	tag2 TEXT DEFAULT '',
+	tag3 TEXT DEFAULT '',
+	tag4 TEXT DEFAULT '',
+	tag5 TEXT DEFAULT ''
+);
