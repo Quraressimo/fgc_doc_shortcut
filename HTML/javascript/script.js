@@ -2,6 +2,16 @@
 TAG_SEARCH_INPUT.addEventListener("input", renderFilters);
 GUIDE_TITLE_SEARCH_INPUT.addEventListener("input", renderGuides);
 
+restoreFilterPreferences();
+for (const group of Object.values(FILTER_GROUPS)) {
+    group.container.addEventListener("toggle", () => {
+        // 검색 결과를 보여주기 위해 자동으로 펼친 상태는 사용자 설정으로 저장하지 않습니다.
+        if (!getSearchQuery()) {
+            saveFilterPreferences();
+        }
+    });
+}
+
 // 테마 설정을 반영하고 다음 방문에도 선택을 유지합니다.
 function updateThemeToggleButton() {
     const isDarkMode = document.documentElement.dataset.theme === "dark";

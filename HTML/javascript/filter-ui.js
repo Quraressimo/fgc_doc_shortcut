@@ -29,6 +29,77 @@ function getOptions(groupName, baseOptions, subfilter) {
     return [...new Set([...baseOptions, ...matchingGuideValues])];
 }
 
+// 저장된 필터 설정을 현재 데이터에 존재하는 선택지만 복원합니다.
+function restoreFilterPreferences() {
+    const savedPreferences = localStorage.getItem("filterPreferences");
+    if (!savedPreferences) return;
+
+    let preferences;
+    try {
+        preferences = JSON.parse(savedPreferences);
+    } catch (error) {
+        console.warn("저장된 필터 설정을 읽지 못했습니다.", error);
+        return;
+    }
+
+    if (!preferences || typeof preferences !== "object" || Array.isArray(preferences)) {
+        return;
+    }
+
+    const savedSelections = preferences.selectedFilters;
+    if (savedSelections && typeof savedSelections === "object" && !Array.isArray(savedSelections)) {
+        for (const [filterName, selection] of Object.entries(SELECTED_FILTERS)) {
+            const savedOptions = savedSelections[filterName];
+            if (!Array.isArray(savedOptions)) continue;
+
+            const baseOptions = filterName === "character"
+                ? GUIDE_CHARACTER_OPTIONS
+                : filterName === "platform"
+                    ? PLATFORM_CONFIG.map((platform) => platform.name)
+                    : TAG_GROUPS[filterName]?.tags ?? [];
+            const availableOptions = getOptions(filterName, baseOptions);
+
+            for (const option of savedOptions) {
+                if (typeof option === "string" && availableOptions.includes(option)) {
+                    selection.add(option);
+                }
+            }
+        }
+    }
+
+    const savedOpenState = preferences.filterOpenState;
+    if (savedOpenState && typeof savedOpenState === "object" && !Array.isArray(savedOpenState)) {
+        for (const [groupName, group] of Object.entries(FILTER_GROUPS)) {
+            if (typeof savedOpenState[groupName] === "boolean") {
+                group.container.open = savedOpenState[groupName];
+            }
+        }
+    }
+}
+
+// 검색어를 기준으로 필터와 펼침 상태를 저장합니다.
+function saveFilterPreferences() {
+    const filterOpenState = getSearchQuery() && filterOpenStateBeforeSearch
+        ? filterOpenStateBeforeSearch
+        : Object.fromEntries(
+            Object.entries(FILTER_GROUPS).map(([groupName, group]) => [
+                groupName,
+                group.container.open
+            ])
+        );
+    const preferences = {
+        selectedFilters: Object.fromEntries(
+            Object.entries(SELECTED_FILTERS).map(([filterName, selection]) => [
+                filterName,
+                [...selection]
+            ])
+        ),
+        filterOpenState
+    };
+
+    localStorage.setItem("filterPreferences", JSON.stringify(preferences));
+}
+
 // 검색창의 공백을 제거하고 대소문자 영향을 줄인 검색어를 반환합니다.
 function getSearchQuery() {
     return TAG_SEARCH_INPUT.value.trim().toLocaleLowerCase();
@@ -56,6 +127,8 @@ function updateSelectedFilter(selection, option, checked) {
     } else {
         selection.delete(option);
     }
+
+    saveFilterPreferences();
 
     // 선택 후 검색어를 비워 다른 필터 선택지를 다시 표시합니다.
     TAG_SEARCH_INPUT.value = "";

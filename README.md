@@ -28,7 +28,35 @@ ai활용프로그래밍 프로젝트용이에요.
   - `only_db_read.py`: SQLite 데이터베이스를 읽기 전용으로 조회해 콘솔에 출력합니다.
   - `export_guides.py`: SQLite 데이터를 `HTML/javascript/guides-data.js`로 변환합니다.
 
+## 실행 환경 & 필요한 패키지
+- 운영체제: Windows 10/11
+- Python 3.9 이상: DB 재생성, 데이터 내보내기, 자동 테스트 실행에 사용합니다.
+    - Python 외부 패키지는 필요하지 않습니다. SQLite와 테스트 모듈은 Python 표준 라이브러리를 사용합니다.
+- 웹 브라우저: Chromium 기반 최신 브라우저 권장. 별도 웹 서버 없이 `HTML\index.html`을 열어 실행할 수 있습니다.
+- Node.js: 테스트 케이스 검증에만 필요합니다. 실 사용에는 필요하지 않습니다.
+
 ## 설치법
+
+### Python 설치
+
+DB 재생성, 데이터 내보내기, 테스트 실행을 사용하려면 Python 3.9 이상을 설치합니다.
+
+1. Microsoft Store에서 `Python 3.9 이상` 버전을 설치하거나 [python.org 다운로드 페이지](https://www.python.org/downloads/windows/)에서 Windows용 Python 설치 파일을 내려받아 실행합니다.
+2. python.org 설치 파일을 사용할 경우 설치 화면의 `Add python.exe to PATH` 옵션을 선택합니다.
+3. 설치가 끝난 뒤 새 터미널을 열고 다음 명령으로 설치를 확인합니다.
+
+        py --version
+
+표시된 버전이 3.9 이상이면 준비가 완료됩니다. Python 외부 패키지는 필요하지 않습니다.
+
+Windows 패키지 관리자(`winget`)를 사용할 수도 있습니다.
+
+    winget install -e --id Python.Python.3.13
+
+위 명령은 예시이며, 다른 지원 버전을 설치하려면 Python의 공식 winget 패키지 ID를 사용하세요.
+
+### 프로젝트 다운로드
+
 https://github.com/Quraressimo/fgc_doc_shortcut/releases
 
 Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_XXXX.zip 확장자 파일을 다운 받아 압축을 풀어주세요.
@@ -50,13 +78,7 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
 페이지의 `공략 추가용 SQL 만들기`에서 공략 정보를 입력하면 `INSERT` 문을 생성할 수 있습니다.
 생성된 문을 `DB\sql\crud.sql`에 추가한 뒤 위 두 명령을 실행하면 DB와 웹페이지 데이터가 갱신됩니다.
 그 다음 `HTML\index.html`을 브라우저에서 직접 열면 됩니다.
-
-## 실행 환경 & 필요한 패키지
-- 운영체제: Windows 10/11
-- Python 3.9 이상: DB 재생성, 데이터 내보내기, 자동 테스트 실행에 사용합니다.
-- 웹 브라우저: 최신 Chrome, Edge 또는 Firefox 권장. 별도 웹 서버 없이 `HTML\index.html`을 열어 실행할 수 있습니다.
-- Node.js: 폼 입력 검증 자동 테스트에만 선택적으로 필요합니다. 설치하지 않아도 나머지 자동 테스트는 실행됩니다.
-- Python 외부 패키지는 필요하지 않습니다. SQLite와 테스트 모듈은 Python 표준 라이브러리를 사용합니다.
+다크모드, 선택한 필터와 필터 그룹의 접힘/펼침 상태는 브라우저에 저장되어 다음 방문에도 유지됩니다.
 
 ## 테스트 실행 방법
 저장소 루트 폴더에서 다음 명령을 실행합니다.
@@ -75,6 +97,8 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
     - [x] 필터 항목 검색: 필터 이름 일부나 한글 초성으로 원하는 캐릭터·플랫폼·태그를 찾습니다.
     - [x] 조건 조합 검색: 같은 그룹에서는 선택 조건 중 하나라도 일치하면 포함하고, 서로 다른 그룹과 제목 검색은 모두 만족하는 결과를 표시합니다.
     - [x] 검색 결과 확인: 제목, 캐릭터, 출처, 태그를 카드로 보여주고 선택하면 원본 공략 링크를 새 탭에서 엽니다.
+
+- 검색 필터 저장: 로컬 저장으로 다크 모드, 필터 항목을 저장했습니다.
 
 ## 계획 변경 사항
 - 없음
