@@ -7,6 +7,11 @@
     <title>공략 바로가기</title>
     <!-- 화면 레이아웃과 색상은 외부 스타일시트에서 관리합니다. -->
     <link rel="stylesheet" href="style.css">
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+        }
+    </script>
     <!-- DB에서 변환된 공략 데이터를 먼저 등록한 후 화면 로직을 실행합니다. -->
     <script src="javascript/guides-data.js"></script>
     <script src="javascript/app-state.js" defer></script>
@@ -21,9 +26,14 @@
         <header class="page-header">
             <h1>공략 바로가기</h1>
             <p>게임이나 캐릭터 이름으로 공략을 검색하세요.</p>
-            <button id="open-sql-generator" class="sql-toggle-button" type="button">
-                공략 추가
-            </button>
+            <div class="header-actions">
+                <button id="theme-toggle-button" class="theme-toggle-button" type="button" aria-pressed="false">
+                    다크모드
+                </button>
+                <button id="open-sql-generator" class="sql-toggle-button" type="button">
+                    공략 추가
+                </button>
+            </div>
         </header>
 
         <!-- 자주 참고하는 외부 사이트 링크를 카드 형태로 제공합니다. -->

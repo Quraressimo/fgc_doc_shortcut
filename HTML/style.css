@@ -24,10 +24,35 @@ body {
     margin-bottom: 24px;
 }
 
-.sql-toggle-button {
+.header-actions {
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.theme-toggle-button {
+    padding: 8px 14px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    background: #fff;
+    color: #20242a;
+    font: inherit;
+    cursor: pointer;
+}
+
+.theme-toggle-button:hover,
+.theme-toggle-button:focus-visible {
+    border-color: #315fce;
+}
+
+.theme-toggle-button:focus-visible {
+    outline: 2px solid #20242a;
+    outline-offset: 3px;
+}
+
+.sql-toggle-button {
     padding: 8px 14px;
     border: 0;
     border-radius: 6px;
@@ -515,6 +540,113 @@ body {
 .back-to-top:focus-visible {
     outline: 2px solid #20242a;
     outline-offset: 3px;
+}
+
+/* 다크모드에서는 기본 표면과 주요 컴포넌트의 명암을 반전합니다. */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+:root[data-theme="dark"] body {
+    background: #15191f;
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .theme-toggle-button,
+:root[data-theme="dark"] .useful-link-list a,
+:root[data-theme="dark"] .guide-sql-dialog,
+:root[data-theme="dark"] .subfilter,
+:root[data-theme="dark"] .guide-card {
+    border-color: #3a4655;
+    background: #202630;
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .theme-toggle-button:focus-visible {
+    outline-color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .page-header p,
+:root[data-theme="dark"] .filter-help,
+:root[data-theme="dark"] .empty-tag-message,
+:root[data-theme="dark"] .search-status,
+:root[data-theme="dark"] .form-help,
+:root[data-theme="dark"] .guide-character,
+:root[data-theme="dark"] .guide-tags,
+:root[data-theme="dark"] .useful-link-list span {
+    color: #aab4c2;
+}
+
+:root[data-theme="dark"] .useful-link-list a,
+:root[data-theme="dark"] .guide-card .guide-link,
+:root[data-theme="dark"] .guide-card:hover .guide-link,
+:root[data-theme="dark"] .guide-card:focus-visible .guide-link {
+    color: #9bb9ff;
+}
+
+:root[data-theme="dark"] .guide-form-grid label,
+:root[data-theme="dark"] .sql-output-area label {
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .guide-form-grid input,
+:root[data-theme="dark"] .guide-form-grid select,
+:root[data-theme="dark"] .sql-output-area textarea,
+:root[data-theme="dark"] #tag-search-input,
+:root[data-theme="dark"] #guide-title-search-input {
+    border-color: #536174;
+    background: #15191f;
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .guide-autocomplete-list {
+    border-color: #3a4655;
+    background: #202630;
+}
+
+:root[data-theme="dark"] .guide-autocomplete-option,
+:root[data-theme="dark"] .filter-option {
+    border-color: #536174;
+    background: #202630;
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .guide-autocomplete-option:hover,
+:root[data-theme="dark"] .guide-autocomplete-option:focus-visible,
+:root[data-theme="dark"] .filter-option:hover,
+:root[data-theme="dark"] .filter-option:focus-visible {
+    background: #303b4a;
+}
+
+:root[data-theme="dark"] .filter-option[aria-pressed="true"] {
+    border-color: #527ee8;
+    background: #315fce;
+    color: #fff;
+}
+
+:root[data-theme="dark"] .guide-tag-difficulty {
+    background: #493b1e;
+    color: #fcd878;
+}
+
+:root[data-theme="dark"] .guide-tag-category {
+    background: #3b3155;
+    color: #d3c3ff;
+}
+
+:root[data-theme="dark"] .guide-tag-situation {
+    background: #1d4437;
+    color: #9ce7c1;
+}
+
+:root[data-theme="dark"] .guide-tag-location {
+    background: #203d60;
+    color: #abd0ff;
+}
+
+:root[data-theme="dark"] .guide-tag-type {
+    background: #4a2d3e;
+    color: #ffb6d5;
 }
 
 /* 공략 카드 목록은 결과 수가 적어도 일정한 하단 높이를 유지합니다. */

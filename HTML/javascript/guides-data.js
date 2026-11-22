@@ -1,4 +1,3 @@
-// DB와 필터 설정에서 자동 생성됩니다. 직접 수정한 내용은 내보내기 시 덮어써집니다.
 window.GUIDE_CONFIG = {
     "characters": {
         "base": {
@@ -742,8 +741,8 @@ window.GUIDES = [
     },
     {
         "id": 1016,
-        "url": "https://x.com/hashtag/GGST_JO",
-        "title": "#GGST_JO 해시태그",
+        "url": "https://x.com/hashtag/GGST_JC",
+        "title": "#GGST_JC 해시태그",
         "character": "잭 오",
         "platform": "X",
         "tags": ["기초"],
@@ -846,8 +845,8 @@ window.GUIDES = [
     },
     {
         "id": 1024,
-        "url": "https://x.com/hashtag/GGST_JN",
-        "title": "#GGST_JN 해시태그",
+        "url": "https://x.com/hashtag/GGST_JO",
+        "title": "#GGST_JO 해시태그",
         "character": "죠니",
         "platform": "X",
         "tags": ["기초"],

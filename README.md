@@ -41,18 +41,15 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
     py DB\python\apply_sql.py
     py DB\python\export_guides.py
 
-필터 설정을 수정할 때는 `DB\filter-groups.json`을 편집한 뒤
-`py DB\python\export_guides.py`를 실행하세요. 이 스크립트가 설정을 `HTML\javascript\guides-data.js`에
-포함하므로, 기존 그룹에 태그를 추가하거나 새 그룹을 추가할 때 Python/JavaScript/HTML을
-함께 수정할 필요가 없습니다.
+필터 설정을 수정할 때는 `DB\filter-groups.json`을 편집한 뒤 `py DB\python\export_guides.py`를 실행하세요.
+이 스크립트가 설정을 `HTML\javascript\guides-data.js`에 포함하므로, 기존 그룹에 태그를 추가하거나 새 그룹을 추가할 때 Python/JavaScript/HTML을 함께 수정할 필요가 없습니다.
 
 `apply_sql.py`는 `guides` 테이블을 삭제하고 SQL 파일 기준으로 다시 만듭니다.
-따라서 DB에 직접 추가한 `guides` 행은 유지되지 않습니다. 기존 DB 내용을 콘솔에서
-확인하려면 `py DB\python\only_db_read.py`를 실행하세요.
+따라서 DB에 직접 추가한 `guides` 행은 유지되지 않습니다. 기존 DB 내용을 콘솔에서 확인하려면 `py DB\python\only_db_read.py`를 실행하세요.
 
-페이지의 `공략 추가용 SQL 만들기`에서 공략 정보를 입력하면 `INSERT` 문을 생성할 수
-있습니다. 생성된 문을 `DB\sql\crud.sql`에 추가한 뒤 위 두 명령을 실행하면 DB와 웹페이지
-데이터가 갱신됩니다. 그 다음 `HTML\index.html`을 브라우저에서 직접 열면 됩니다.
+페이지의 `공략 추가용 SQL 만들기`에서 공략 정보를 입력하면 `INSERT` 문을 생성할 수 있습니다.
+생성된 문을 `DB\sql\crud.sql`에 추가한 뒤 위 두 명령을 실행하면 DB와 웹페이지 데이터가 갱신됩니다.
+그 다음 `HTML\index.html`을 브라우저에서 직접 열면 됩니다.
 
 ## 실행 환경 & 필요한 패키지
 - 운영체제: Windows 10/11
@@ -80,11 +77,13 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
     - [x] 검색 결과 확인: 제목, 캐릭터, 출처, 태그를 카드로 보여주고 선택하면 원본 공략 링크를 새 탭에서 엽니다.
 
 ## 계획 변경 사항
-- 중간 계획에서 변경된 내용은 없으며 편의성 계열 기능 추가만 있습니다.
+- 없음
+- 편의성 계열 기능 추가만 있습니다.
 - 중간 대비 추가 사항
     - 공략 제목 검색 : 필터 검색 이외에도 제목만 검색해 빠르게 찾을 수 있게 했습니다.
     - 공략 추가 폼 : 태그가 늘어남에 따라 SQL에 일일히 작성하기 힘들어 간편하게 SQL을 작성할 수 있는 폼을 만들었습니다.
     - 필터 UI 개선 : 항목이 많아져 서브 필터별로 접기/펼치기가 가능하고, 초성, 부분 검색으로 빠른 필터링이 가능하게 했습니다.
     - URL 추가 : 공식 홈페이지, 공략사이트 등 URL을 추가했습니다.
+    - 다크 모드 추가 : 어둡게 페이지를 볼 수 있게 버튼을 추가했습니다.
 
 ## 실행 화면 스크린샷

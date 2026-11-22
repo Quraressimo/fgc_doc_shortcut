@@ -12,6 +12,7 @@ const COPY_SQL_BUTTON = document.querySelector("#copy-sql-button");
 const SQL_STATUS = document.querySelector("#sql-status");
 const SQL_GENERATOR_DIALOG = document.querySelector("#sql-generator-dialog");
 const OPEN_SQL_GENERATOR_BUTTON = document.querySelector("#open-sql-generator");
+const THEME_TOGGLE_BUTTON = document.querySelector("#theme-toggle-button");
 const CLOSE_SQL_GENERATOR_BUTTON = document.querySelector("#close-sql-generator");
 const GUIDE_ID_INPUT = document.querySelector("#guide-id-input");
 const GUIDE_ID_HELP = document.querySelector("#guide-id-help");

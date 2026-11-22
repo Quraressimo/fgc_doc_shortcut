@@ -2,6 +2,21 @@
 TAG_SEARCH_INPUT.addEventListener("input", renderFilters);
 GUIDE_TITLE_SEARCH_INPUT.addEventListener("input", renderGuides);
 
+// 테마 설정을 반영하고 다음 방문에도 선택을 유지합니다.
+function updateThemeToggleButton() {
+    const isDarkMode = document.documentElement.dataset.theme === "dark";
+    THEME_TOGGLE_BUTTON.textContent = isDarkMode ? "라이트모드" : "다크모드";
+    THEME_TOGGLE_BUTTON.setAttribute("aria-pressed", String(isDarkMode));
+}
+
+updateThemeToggleButton();
+THEME_TOGGLE_BUTTON.addEventListener("click", () => {
+    const isDarkMode = document.documentElement.dataset.theme !== "dark";
+    document.documentElement.dataset.theme = isDarkMode ? "dark" : "light";
+    updateThemeToggleButton();
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+});
+
 // 플랫폼을 바꾸면 해당 플랫폼에 맞는 공략 ID를 설정합니다.
 GUIDE_PLATFORM_INPUT.addEventListener("change", () => {
     updateGuideIdForPlatform();
