@@ -71,6 +71,7 @@ def main() -> None:
         json.dumps(guides, ensure_ascii=False, indent=4)
     )
     OUTPUT_PATH.write_text(
+        # DB와 필터 설정에서 자동 생성됩니다. 직접 수정한 내용은 내보내기 시 덮어써집니다.
         f"window.GUIDE_CONFIG = {config_data};\n"
         f"window.GUIDES = {guides_data};\n",
         encoding="utf-8",

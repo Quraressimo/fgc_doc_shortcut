@@ -27,6 +27,7 @@ const PLATFORM_ID_CONFIG = new Map(
 );
 const CHARACTER_CONFIG = FILTER_CONFIG.characters;
 
+// 설정 파일의 태그 그룹을 화면에 표시할 하위 필터와 목록 요소로 만듭니다.
 const TAG_FILTER_SUBFILTERS = Object.entries(TAG_GROUPS).map(
     ([key, { label, tags }]) => {
         const container = document.createElement("fieldset");
@@ -45,6 +46,7 @@ const TAG_FILTER_SUBFILTERS = Object.entries(TAG_GROUPS).map(
     }
 );
 
+// JavaScript는 "1" 같은 숫자형 키를 먼저 열거하므로 기본 그룹을 명시적으로 앞으로 옮깁니다.
 const CHARACTER_GROUP_ENTRIES = Object.entries(CHARACTER_CONFIG);
 const ORDERED_CHARACTER_GROUP_ENTRIES = [
     ...CHARACTER_GROUP_ENTRIES.filter(([group]) => group === "base"),
@@ -53,6 +55,7 @@ const ORDERED_CHARACTER_GROUP_ENTRIES = [
 const CHARACTER_GROUPS = Object.fromEntries(
     ORDERED_CHARACTER_GROUP_ENTRIES.map(([group, config]) => [group, config.tags])
 );
+// 캐릭터 이름에서 소속 그룹을 빠르게 찾을 수 있도록 역방향 조회표를 만듭니다.
 const CHARACTER_GROUP_BY_NAME = new Map(
     Object.entries(CHARACTER_GROUPS).flatMap(([group, characters]) =>
         characters.map((character) => [character, group])
@@ -127,10 +130,12 @@ const SELECTED_FILTERS = {
 let filterOpenStateBeforeSearch = null;
 let previousSearchQuery = "";
 
+// 설정에 등록된 선택지와 DB에만 존재하는 값을 합쳐 자동완성 후보를 준비합니다.
 const GUIDE_CHARACTER_OPTIONS = [...new Set([
     ...Object.values(CHARACTER_GROUPS).flat(),
     ...guides.map((guide) => guide.character?.trim()).filter(Boolean)
 ])];
+// 기본 설정과 실제 공략에서 쓰인 태그를 합쳐 필터 후보를 준비합니다.
 const GUIDE_TAG_OPTIONS = [...new Set([
     ...TAG_GROUP_ORDER.flatMap((groupName) => TAG_GROUPS[groupName].tags),
     ...guides.flatMap((guide) => guide.tags ?? [])

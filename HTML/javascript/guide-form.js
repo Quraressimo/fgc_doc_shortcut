@@ -1,3 +1,4 @@
+// 선택한 플랫폼에 배정된 ID 구간에서 아직 사용하지 않은 가장 작은 번호를 찾습니다.
 function getNextAvailableGuideId(platform) {
     const platformConfig = PLATFORM_ID_CONFIG.get(platform);
     if (!platformConfig) {
@@ -19,6 +20,7 @@ function getNextAvailableGuideId(platform) {
     return null;
 }
 
+// 플랫폼이 바뀌면 다음 ID를 입력하고, 빈 번호가 없으면 폼 검증 오류로 알립니다.
 function updateGuideIdForPlatform() {
     const nextId = getNextAvailableGuideId(GUIDE_PLATFORM_INPUT.value);
 
@@ -34,6 +36,7 @@ function updateGuideIdForPlatform() {
     GUIDE_ID_HELP.textContent = "플랫폼을 선택하면 로드된 DB 데이터 기준 최소 빈 ID를 입력합니다.";
 }
 
+// 입력한 검색어를 포함하는 추천 항목을 최대 8개까지 목록에 표시합니다.
 function renderAutocompleteSuggestions(input, list, options) {
     const query = input.value.trim().toLocaleLowerCase();
     const matchingOptions = query
@@ -47,6 +50,7 @@ function renderAutocompleteSuggestions(input, list, options) {
     list.hidden = matchingOptions.length === 0;
     input.setAttribute("aria-expanded", String(!list.hidden));
 
+    // 추천 항목을 누르면 입력값으로 선택하고, input 이벤트를 발생시켜 관련 UI도 갱신합니다.
     for (const option of matchingOptions) {
         const item = document.createElement("li");
         const button = document.createElement("button");
@@ -66,6 +70,7 @@ function renderAutocompleteSuggestions(input, list, options) {
     }
 }
 
+// 입력 중에는 추천 목록을 갱신하고, 입력란과 목록 모두에서 벗어나면 목록을 닫습니다.
 function setupAutocomplete(input, list, options) {
     const hideIfUnfocused = () => {
         window.setTimeout(() => {
@@ -83,12 +88,12 @@ function setupAutocomplete(input, list, options) {
     list.addEventListener("focusout", hideIfUnfocused);
 }
 
-// SQL 문자열 안의 작은따옴표를 SQLite 문자열 표기 방식에 맞게 이스케이프합니다.
+// SQL 문자열 값 안의 작은따옴표를 SQLite 표기 방식에 맞게 두 번 써서 처리합니다.
 function escapeSqlValue(value) {
     return value.replaceAll("'", "''");
 }
 
-// 입력 폼의 값을 읽어 guides 테이블용 INSERT 문으로 변환합니다.
+// 폼 값을 읽어 guides 테이블에 한 행을 추가하는 INSERT 문을 만듭니다.
 function createGuideInsertSql() {
     const VALUES = [
         document.querySelector("#guide-id-input").value.trim(),
@@ -100,6 +105,7 @@ function createGuideInsertSql() {
             document.querySelector(`#guide-tag-${index}-input`).value.trim()
         )
     ];
+    // ID는 숫자이므로 따옴표 없이 쓰고, 나머지 값은 SQL 문자열로 감쌉니다.
     const SQL_VALUES = VALUES.map((value, index) =>
         index === 0 ? value : `'${escapeSqlValue(value)}'`
     );
@@ -109,7 +115,7 @@ function createGuideInsertSql() {
         + `	(${SQL_VALUES.join(", ")});`;
 }
 
-// 생성된 SQL을 클립보드에 복사하고, 브라우저 권한이 없으면 직접 선택할 수 있게 합니다.
+// 생성된 SQL을 복사합니다. 클립보드 접근이 막히면 사용자가 직접 복사하도록 SQL을 선택합니다.
 async function copyGeneratedSql() {
     try {
         await navigator.clipboard.writeText(SQL_OUTPUT.value);

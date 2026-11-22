@@ -3,12 +3,14 @@ function renderGuides() {
         .some((options) => options.size > 0);
     const titleSearchQuery = GUIDE_TITLE_SEARCH_INPUT.value.trim().toLocaleLowerCase();
     const hasTitleSearch = titleSearchQuery !== "";
+    // 검색어나 필터가 없을 때는 전체 공략 대신 시작 안내를 보여줍니다.
     const matchingGuides = !hasSelectedFilters && !hasTitleSearch
         ? []
         : guides.filter((guide) => {
             // 제목 검색과 필터를 함께 사용하면 두 조건을 모두 만족하는 공략만 보여줍니다.
             const matchesTitle = !hasTitleSearch
                 || (guide.title ?? "").toLocaleLowerCase().includes(titleSearchQuery);
+            // 각 그룹 안에서는 하나라도 일치하면 되고, 선택한 그룹들은 모두 일치해야 합니다.
             const matchesFilters = Object.entries(SELECTED_FILTERS).every(
                 ([groupName, selectedOptions]) => {
                     if (selectedOptions.size === 0) return true;

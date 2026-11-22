@@ -4,10 +4,8 @@
 -- 3000번대 = 아카
 -- 9000번대 = 기타
 
--- Insert sample records into guides table in fgc.db
 INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
     (0, 'https://youtu.be/QbswI_YaXJY?si=VpWY9m2ZlX0XS-i8', '공통 시스템 가이드', '', 'YouTube', '기초', '~브론즈', '운영', '공용', ''),
-	-- 기본캐 스타터 가이드
 	(1, 'https://youtu.be/Nvtkod61MH8?si=qdy7OW4nsnAuk40S', '솔 배드가이 스타터 가이드', '솔 배드가이', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(2, 'https://youtu.be/720w-AmzlUg?si=o-XAKijul8RGQtQ2', '카이 키스크 스타터 가이드', '카이 키스크', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(3, 'https://youtu.be/FiofYbmtugg?si=uLB8mL2-iVvQPkXZ', '메이 스타터 가이드', '메이', 'YouTube', '기초', '~브론즈', '운영', '', ''),
@@ -23,28 +21,23 @@ INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag
 	(13, 'https://youtu.be/C0XZjad2eRI?si=Zx5eau2ReCmiv3FH', '지오바나 스타터 가이드', '지오바나', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(14, 'https://youtu.be/5s_Pq_go7XU?si=eb8gaxldYQy4lRHQ', '안지 미토 스타터 가이드', '안지 미토', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(15, 'https://youtu.be/yF07o74V7nc', '이노 스타터 가이드', '이노', 'YouTube', '기초', '~브론즈', '운영', '', ''),
-	-- 시즌 패스 1 스타터 가이드
 	(16, 'https://youtu.be/BTHYTL9af5Y', '골드루이스 디킨슨 스타터 가이드', '골드루이스 디킨슨', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(17, 'https://youtu.be/JF0hQcjqYbM', '잭 오 스타터 가이드', '잭 오', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(18, 'https://youtu.be/1fTfTGS3PMo', '해피 케이오스 스타터 가이드', '해피 케이오스', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(19, 'https://youtu.be/cFTPaZmQJS4', '바이켄 스타터 가이드', '바이켄', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(20, 'https://youtu.be/DfAEQnbjt2c', '테스타먼트 스타터 가이드', '테스타먼트', 'YouTube', '기초', '~브론즈', '운영', '', ''),
-	-- 시즌 패스 2 스타터 가이드
 	(21, 'https://youtu.be/xs_kL3IaC5U', '브리짓 스타터 가이드', '브리짓', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(22, 'https://youtu.be/WEaM_aNtkLE', '신 키스크 스타터 가이드', '신 키스크', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(23, 'https://youtu.be/d4PXpsqQrSA', '베드맨? 스타터 가이드', '베드맨?', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(24, 'https://youtu.be/d5hHDLCNZLI', '아스카 R# 스타터 가이드', '아스카 R#', 'YouTube', '기초', '~브론즈', '운영', '', ''),
-	-- 시즌 패스 3 스타터 가이드
 	(25, 'https://youtu.be/vOznZrBtqw8', '죠니 스타터 가이드', '죠니', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(26, 'https://youtu.be/gXdQ33PN8gg', '엘페르트 밸런타인 스타터 가이드', '엘페르트 밸런타인', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(27, 'https://youtu.be/cPLlWDYqkCI', 'A.B.A 스타터 가이드', 'A.B.A', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(28, 'https://youtu.be/ZLSgqrg0tGo', '슬레이어 스타터 가이드', '슬레이어', 'YouTube', '기초', '~브론즈', '운영', '', ''),
-	-- 시즌 패스 4 스타터 가이드
 	(29, 'https://youtu.be/kUMzx0VZlFE', '퀸 디지 스타터 가이드', '퀸 디지', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(30, 'https://youtu.be/gh0aqa-3xWs', '베놈 스타터 가이드', '베놈', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(31, 'https://youtu.be/0eDuQLvoOeA', '유니카 스타터 가이드', '유니카', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(32, 'https://youtu.be/UT3Q6cAZgYI', '루시 스타터 가이드', '루시', 'YouTube', '기초', '~브론즈', '운영', '', ''),
-	-- 시즌 패스 5 스타터 가이드
 	(33, 'https://youtu.be/MIJwA7Pu9Ns', '쿠라도베리 잼 스타터 가이드', '쿠라도베리 잼', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(34, 'https://youtu.be/NdGQ7YGBHOw', '로보카이 스타터 가이드', '로보카이', 'YouTube', '기초', '~브론즈', '운영', '', '');
 
@@ -96,7 +89,6 @@ INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag
 
 --기타
 INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
-    -- 더스트루프 링크
 	(9000, 'https://www.dustloop.com/w/GGST/Sol_Badguy', '솔 배드가이 Dustloop', '솔 배드가이', '기타', '대처법', '~투신', '기초', '', ''),
 	(9001, 'https://www.dustloop.com/w/GGST/Ky_Kiske', '카이 키스크 Dustloop', '카이 키스크', '기타', '대처법', '~투신', '기초', '', ''),
 	(9002, 'https://www.dustloop.com/w/GGST/May', '메이 Dustloop', '메이', '기타', '대처법', '~투신', '기초', '', ''),

@@ -140,6 +140,7 @@ function renderFilters() {
         );
     }
 
+    // 검색 중에는 일치하는 하위 그룹을 바로 볼 수 있도록 필터를 펼칩니다.
     if (hasSearchQuery) {
         for (const group of Object.values(FILTER_GROUPS)) {
             group.container.open = true;

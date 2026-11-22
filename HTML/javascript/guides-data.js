@@ -1,3 +1,4 @@
+// DB와 필터 설정에서 자동 생성됩니다. 직접 수정한 내용은 내보내기 시 덮어써집니다.
 window.GUIDE_CONFIG = {
     "characters": {
         "base": {
