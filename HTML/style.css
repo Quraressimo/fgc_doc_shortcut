@@ -24,6 +24,40 @@ body {
     margin-bottom: 24px;
 }
 
+.page-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+.github-link-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #b9c1cb;
+    border-radius: 6px;
+    background: #eef2fb;
+    color: #244da8;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.github-link-button:hover,
+.github-link-button:focus-visible {
+    background: #dbe5fa;
+}
+
+.github-link-button:focus-visible {
+    outline: 2px solid #20242a;
+    outline-offset: 3px;
+}
+
 .header-actions {
     position: absolute;
     top: 0;
@@ -156,7 +190,7 @@ body {
 }
 
 .page-header h1 {
-    margin: 0 0 8px;
+    margin: 0;
 }
 
 .page-header p,
@@ -553,6 +587,7 @@ body {
 }
 
 :root[data-theme="dark"] .theme-toggle-button,
+:root[data-theme="dark"] .github-link-button,
 :root[data-theme="dark"] .useful-link-list a,
 :root[data-theme="dark"] .guide-sql-dialog,
 :root[data-theme="dark"] .subfilter,
@@ -560,6 +595,21 @@ body {
     border-color: #3a4655;
     background: #202630;
     color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .github-link-button {
+    border-color: #3a4655;
+    background: #202630;
+    color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .github-link-button:hover,
+:root[data-theme="dark"] .github-link-button:focus-visible {
+    background: #303b4a;
+}
+
+:root[data-theme="dark"] .github-link-button:focus-visible {
+    outline-color: #e5e7eb;
 }
 
 :root[data-theme="dark"] .theme-toggle-button:focus-visible {
@@ -761,6 +811,11 @@ body {
 
 /* 작은 화면에서는 상단 이동 버튼의 위치를 줄입니다. */
 @media (max-width: 640px) {
+    .header-actions {
+        position: static;
+        margin-top: 12px;
+    }
+
     .guide-form-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
