@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local virtual environments
+.venv/
+venv/
+
+# SQLite temporary files (keep the project database)
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+
+# Project backups
+/BACKUP/
