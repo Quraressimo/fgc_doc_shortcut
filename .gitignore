@@ -17,6 +17,3 @@ Thumbs.db
 
 # Project backups
 /BACKUP/
-
-# 테스트용
-/tests/
