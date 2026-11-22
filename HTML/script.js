@@ -18,8 +18,14 @@ const GUIDE_ID_HELP = document.querySelector("#guide-id-help");
 const GUIDE_PLATFORM_INPUT = document.querySelector("#guide-platform-input");
 const GUIDE_CHARACTER_INPUT = document.querySelector("#guide-character-input");
 const GUIDE_TAG_INPUTS = [1, 2, 3, 4, 5].map((index) => document.querySelector(`#guide-tag-${index}-input`));
-const TAG_GROUPS = window.GUIDE_CONFIG.tagGroups;
+const FILTER_CONFIG = window.GUIDE_CONFIG;
+const TAG_GROUPS = FILTER_CONFIG.tagGroups;
 const TAG_GROUP_ORDER = Object.keys(TAG_GROUPS);
+const PLATFORM_CONFIG = FILTER_CONFIG.platforms;
+const PLATFORM_ID_CONFIG = new Map(
+    PLATFORM_CONFIG.map((platform) => [platform.name, platform])
+);
+const CHARACTER_CONFIG = FILTER_CONFIG.characters;
 
 const TAG_FILTER_SUBFILTERS = Object.entries(TAG_GROUPS).map(
     ([key, { label, tags }]) => {
@@ -39,58 +45,58 @@ const TAG_FILTER_SUBFILTERS = Object.entries(TAG_GROUPS).map(
     }
 );
 
-// 플랫폼별 ID 구간의 시작 번호입니다. 같은 구간 안에서 뒤의 번호는 직접 조정합니다.
-const PLATFORM_ID_PREFIXES = {
-    YouTube: 0,
-    X: 1000,
-    dcinside: 2000,
-    아카라이브: 3000,
-    기타: 9000
-};
-const PLATFORM_ID_RANGE_SIZE = 1000;
-
-// 캐릭터 필터의 분류 기준입니다. 공략 데이터의 캐릭터도 이 기준으로 분류합니다.
-const CHARACTER_GROUPS = {
-    base: [
-        "솔 배드가이", "카이 키스크", "메이", "액슬 로우", "치프 자너프",
-        "포템킨", "파우스트", "밀리아 레이지", "자토 ONE", "램리썰 밸런타인",
-        "레오 화이트팽", "나고리유키", "지오바나", "안지 미토", "이노", "공용"
-    ],
-    1: ["골드루이스 디킨슨", "잭 오", "해피 케이오스", "바이켄", "테스타먼트"],
-    2: ["브리짓", "신 키스크", "베드맨?", "아스카 R#"],
-    3: ["죠니", "엘페르트 밸런타인", "A.B.A", "슬레이어"],
-    4: ["퀸 디지", "베놈", "유니카", "루시"],
-    5: ["쿠라도베리 잼", "로보카이"]
-};
+const CHARACTER_GROUPS = Object.fromEntries(
+    Object.entries(CHARACTER_CONFIG).map(([group, config]) => [group, config.tags])
+);
 const CHARACTER_GROUP_BY_NAME = new Map(
     Object.entries(CHARACTER_GROUPS).flatMap(([group, characters]) =>
         characters.map((character) => [character, group])
     )
 );
 
+const CHARACTER_FILTER_SUBFILTERS = document.querySelector("#character-filter-subfilters");
+const CHARACTER_SUBFILTERS = Object.entries(CHARACTER_CONFIG).map(([group, config]) => {
+    const container = document.createElement("fieldset");
+    const legend = document.createElement("legend");
+    const list = document.createElement("ul");
+
+    container.className = "tag-subfilter";
+    container.hidden = false;
+    legend.textContent = config.label;
+    list.id = group === "base"
+        ? "base-character-filter-list"
+        : `season-pass-${group}-filter-list`;
+    list.className = "tag-filter-list";
+    container.append(legend, list);
+    CHARACTER_FILTER_SUBFILTERS.append(container);
+
+    return {
+        key: "character",
+        list,
+        container,
+        options: config.tags,
+        characterGroup: group
+    };
+});
+
+for (const platform of PLATFORM_CONFIG) {
+    const option = document.createElement("option");
+    option.value = platform.name;
+    option.textContent = platform.name;
+    GUIDE_PLATFORM_INPUT.append(option);
+}
+
 const FILTER_GROUPS = {
     character: {
         // 캐릭터 전체를 접거나 펼칠 수 있는 details 요소입니다.
         container: document.querySelector("#character-filter-category"),
-        subfilters: Object.entries(CHARACTER_GROUPS).map(([group, options]) => {
-            const listId = group === "base"
-                ? "#base-character-filter-list"
-                : `#season-pass-${group}-filter-list`;
-            const list = document.querySelector(listId);
-            return {
-                key: "character",
-                list,
-                container: list.closest("fieldset"),
-                options,
-                characterGroup: group
-            };
-        })
+        subfilters: CHARACTER_SUBFILTERS
     },
     platform: {
         // 플랫폼은 하나의 목록으로 표시되지만 캐릭터/태그와 같은 필터 그룹으로 취급합니다.
         container: document.querySelector("#platform-filter-category"),
         list: document.querySelector("#platform-filter-list"),
-        options: ["YouTube", "X", "dcinside", "아카라이브", "기타"]
+        options: PLATFORM_CONFIG.map((platform) => platform.name)
     },
     tags: {
         // 태그 전체 그룹 내부에 난이도·분류·상황·위치·유형 하위 그룹이 있습니다.
@@ -104,12 +110,18 @@ const FILTER_GROUPS = {
 let guides = Array.isArray(window.GUIDES) ? window.GUIDES : [];
 
 function getNextAvailableGuideId(platform) {
-    const rangeStart = PLATFORM_ID_PREFIXES[platform];
+    const platformConfig = PLATFORM_ID_CONFIG.get(platform);
+    if (!platformConfig) {
+        return null;
+    }
+
+    const rangeStart = platformConfig.idPrefix;
+    const rangeSize = platformConfig.idRangeSize;
     const usedIds = new Set(
         guides.map((guide) => Number(guide.id)).filter((id) => Number.isInteger(id))
     );
 
-    for (let id = rangeStart; id < rangeStart + PLATFORM_ID_RANGE_SIZE; id++) {
+    for (let id = rangeStart; id < rangeStart + rangeSize; id++) {
         if (!usedIds.has(id)) {
             return id;
         }

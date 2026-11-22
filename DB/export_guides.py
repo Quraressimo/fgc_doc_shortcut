@@ -7,7 +7,7 @@ from pathlib import Path
 # 프로젝트 루트와 입력/출력 파일의 위치를 한 곳에서 관리합니다.
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "DB" / "fgc.db"
-TAG_GROUPS_PATH = BASE_DIR / "DB" / "tag-groups.json"
+FILTER_GROUPS_PATH = BASE_DIR / "DB" / "filter-groups.json"
 OUTPUT_PATH = BASE_DIR / "HTML" / "guides-data.js"
 STRING_ARRAY_PATTERN = re.compile(
     r'\[\s*(?:"(?:\\.|[^"\\])*"(?:\s*,\s*"(?:\\.|[^"\\])*")*)?\s*\]'
@@ -23,7 +23,8 @@ def compact_string_arrays(json_text: str) -> str:
 
 
 def main() -> None:
-    tag_groups = json.loads(TAG_GROUPS_PATH.read_text(encoding="utf-8"))
+    filter_groups = json.loads(FILTER_GROUPS_PATH.read_text(encoding="utf-8"))
+    tag_groups = filter_groups["tagGroups"]
 
     # SQLite 행을 사전처럼 다루기 위해 Row factory를 사용합니다.
     with sqlite3.connect(DB_PATH) as connection:
@@ -63,7 +64,7 @@ def main() -> None:
 
     # 설정과 데이터 모두 스크립트로 내보내 file:// 환경에서도 사용할 수 있게 합니다.
     config_data = compact_string_arrays(
-        json.dumps({"tagGroups": tag_groups}, ensure_ascii=False, indent=4)
+        json.dumps(filter_groups, ensure_ascii=False, indent=4)
     )
     guides_data = compact_string_arrays(
         json.dumps(guides, ensure_ascii=False, indent=4)

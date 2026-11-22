@@ -66,11 +66,6 @@
                     <label class="guide-form-platform">
                         플랫폼
                         <select id="guide-platform-input" required>
-                            <option value="YouTube">YouTube</option>
-                            <option value="X">X</option>
-                            <option value="dcinside">dcinside</option>
-                            <option value="아카라이브">아카라이브</option>
-                            <option value="기타">기타</option>
                         </select>
                     </label>
                     <label class="guide-form-title">
@@ -137,7 +132,7 @@
                 type="search"
                 id="tag-search-input"
                 placeholder="캐릭터, 플랫폼, 태그 검색"
-                aria-controls="base-character-filter-list season-pass-1-filter-list season-pass-2-filter-list season-pass-3-filter-list season-pass-4-filter-list season-pass-5-filter-list platform-filter-list tag-filter-subfilters"
+                aria-controls="character-filter-subfilters platform-filter-list tag-filter-subfilters"
             >
 
             <fieldset class="tag-filters">
@@ -147,32 +142,7 @@
                     <!-- details를 사용해 캐릭터 필터 전체를 접거나 펼칠 수 있습니다. -->
                     <details id="character-filter-category" class="subfilter">
                         <summary>캐릭터</summary>
-                        <div class="tag-subfilters">
-                            <fieldset class="tag-subfilter">
-                                <legend>기본 캐릭터</legend>
-                                <ul id="base-character-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset class="tag-subfilter">
-                                <legend>시즌 패스 1</legend>
-                                <ul id="season-pass-1-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset class="tag-subfilter">
-                                <legend>시즌 패스 2</legend>
-                                <ul id="season-pass-2-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset class="tag-subfilter">
-                                <legend>시즌 패스 3</legend>
-                                <ul id="season-pass-3-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset class="tag-subfilter">
-                                <legend>시즌 패스 4</legend>
-                                <ul id="season-pass-4-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                            <fieldset class="tag-subfilter">
-                                <legend>시즌 패스 5</legend>
-                                <ul id="season-pass-5-filter-list" class="tag-filter-list"></ul>
-                            </fieldset>
-                        </div>
+                        <div id="character-filter-subfilters" class="tag-subfilters"></div>
                     </details>
                     <!-- 플랫폼 필터도 동일한 접기/펼치기 구조를 사용합니다. -->
                     <details id="platform-filter-category" class="subfilter">

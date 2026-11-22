@@ -13,7 +13,7 @@ ai활용프로그래밍 프로젝트용이에요
 #### DB
 - `tables.sql`: `guides` 테이블의 구조를 정의합니다.
 - `crud.sql`: 공략 데이터를 DB에 입력합니다.
-- `tag-groups.json`: 태그 그룹, 표시 이름, 태그 분류를 정의합니다.
+- `filter-groups.json`: 태그 그룹, 플랫폼, 캐릭터 분류와 ID 구간을 정의합니다.
 - `fgc.db`: 공략 데이터가 저장된 SQLite 데이터베이스입니다.
 - `apply_sql.py`: `tables.sql`과 `crud.sql`로 `guides` 테이블을 재생성합니다.
 - `only_db_read.py`: SQLite 데이터베이스를 읽기 전용으로 조회해 콘솔에 출력합니다.
@@ -32,7 +32,7 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
     py DB\apply_sql.py
     py DB\export_guides.py
 
-태그 그룹이나 태그 분류를 수정할 때는 `DB\tag-groups.json`을 편집한 뒤
+필터 설정을 수정할 때는 `DB\filter-groups.json`을 편집한 뒤
 `py DB\export_guides.py`를 실행하세요. 이 스크립트가 설정을 `HTML\guides-data.js`에
 포함하므로, 기존 그룹에 태그를 추가하거나 새 그룹을 추가할 때 Python/JavaScript/HTML을
 함께 수정할 필요가 없습니다.
