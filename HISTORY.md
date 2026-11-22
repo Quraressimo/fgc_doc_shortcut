@@ -87,6 +87,25 @@ db와 예시 등등을 추가해 실제 검색이 되게 해봤습니다.
 
 # 11월 16일 월
 
-- That won't make it in time for this schedule
+- [`That won't make it in time for this schedule`](https://youtu.be/hOeQFSibkBA?si=nGQVYeHOVRrE7WFU)
 
 # 11월 22일 일
+
+- DB 관련
+    - X 플랫폼의 캐릭터별 해시태그 링크 등 추가
+    - 캐릭터 그룹, 플랫폼별 ID 구간, 태그 그룹 설정을 `filter-groups.json`으로 통합
+    - SQL 파일과 Python 스크립트를 `DB/sql`, `DB/python`으로 분리하고 내보낸 데이터를 `HTML/javascript`에 배치
+
+- HTML 관련
+    - 단일 `script.js`를 화면 상태, 추가 폼, 필터, 결과 목록, 이벤트 연결 모듈로 분리
+        - js들을 `HTML/javascript`에 배치
+    - 필터와 플랫폼 입력 선택지를 설정 파일에서 생성하도록 변경
+    - SQL 추가 폼에서 공백만 입력하거나 등록되지 않은 캐릭터·태그를 제출하지 못하도록 검증
+
+- test 관련
+    - 테스트 케이스용 `tests` 폴더 추가
+
+- README 관련
+    - 실행 환경과 필요한 패키지, Python 및 선택적 Node.js 요구 사항을 정리
+    - 자동 테스트 실행 명령과 브라우저 수동 확인 방법을 추가
+    - MVP 범위로 캐릭터·출처(플랫폼)·유형·태그 필터, 필터 검색, 조건 조합 검색과 결과 표시를 문서화
