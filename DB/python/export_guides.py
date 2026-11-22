@@ -5,10 +5,11 @@ from pathlib import Path
 
 
 # 프로젝트 루트와 입력/출력 파일의 위치를 한 곳에서 관리합니다.
-BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "DB" / "fgc.db"
-FILTER_GROUPS_PATH = BASE_DIR / "DB" / "filter-groups.json"
-OUTPUT_PATH = BASE_DIR / "HTML" / "guides-data.js"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+DB_DIR = PROJECT_ROOT / "DB"
+DB_PATH = DB_DIR / "fgc.db"
+FILTER_GROUPS_PATH = DB_DIR / "filter-groups.json"
+OUTPUT_PATH = PROJECT_ROOT / "HTML" / "javascript" / "guides-data.js"
 STRING_ARRAY_PATTERN = re.compile(
     r'\[\s*(?:"(?:\\.|[^"\\])*"(?:\s*,\s*"(?:\\.|[^"\\])*")*)?\s*\]'
 )

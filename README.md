@@ -6,22 +6,25 @@ ai활용프로그래밍 프로젝트용이에요
 ### 파일 구조
 #### HTML
 - `index.html`: 공략 검색 화면을 구성합니다.
-- `app-state.js`: 페이지 요소와 필터 설정 및 상태를 준비합니다.
-- `guide-form.js`: 공략 추가 폼, 자동 완성, SQL 생성 기능을 처리합니다.
-- `filter-ui.js`: 필터 선택지와 필터 검색을 처리합니다.
-- `guide-list.js`: 검색 조건에 맞는 공략 카드와 결과 안내를 출력합니다.
-- `script.js`: 검색, 폼, 페이지 버튼 이벤트를 연결하고 초기 화면을 렌더링합니다.
 - `style.css`: 웹페이지의 화면 스타일을 정의합니다.
-- `guides-data.js`: SQLite DB에서 변환된 공략 데이터를 저장합니다.
+- `javascript/`: 브라우저 JavaScript 파일을 보관합니다.
+  - `app-state.js`: 페이지 요소와 필터 설정 및 상태를 준비합니다.
+  - `guide-form.js`: 공략 추가 폼, 자동 완성, SQL 생성 기능을 처리합니다.
+  - `filter-ui.js`: 필터 선택지와 필터 검색을 처리합니다.
+  - `guide-list.js`: 검색 조건에 맞는 공략 카드와 결과 안내를 출력합니다.
+  - `script.js`: 검색, 폼, 페이지 버튼 이벤트를 연결하고 초기 화면을 렌더링합니다.
+  - `guides-data.js`: SQLite DB에서 변환된 공략 데이터를 저장합니다.
 
 #### DB
-- `tables.sql`: `guides` 테이블의 구조를 정의합니다.
-- `crud.sql`: 공략 데이터를 DB에 입력합니다.
 - `filter-groups.json`: 태그 그룹, 플랫폼, 캐릭터 분류와 ID 구간을 정의합니다.
 - `fgc.db`: 공략 데이터가 저장된 SQLite 데이터베이스입니다.
-- `apply_sql.py`: `tables.sql`과 `crud.sql`로 `guides` 테이블을 재생성합니다.
-- `only_db_read.py`: SQLite 데이터베이스를 읽기 전용으로 조회해 콘솔에 출력합니다.
-- `export_guides.py`: SQLite 데이터를 `HTML/guides-data.js`로 변환합니다.
+- `sql/`: 데이터베이스 스키마와 SQL 데이터를 보관합니다.
+  - `tables.sql`: `guides` 테이블의 구조를 정의합니다.
+  - `crud.sql`: 공략 데이터를 DB에 입력합니다.
+- `python/`: DB 재생성과 조회, JavaScript 데이터 내보내기 스크립트를 보관합니다.
+  - `apply_sql.py`: `sql/tables.sql`과 `sql/crud.sql`로 `guides` 테이블을 재생성합니다.
+  - `only_db_read.py`: SQLite 데이터베이스를 읽기 전용으로 조회해 콘솔에 출력합니다.
+  - `export_guides.py`: SQLite 데이터를 `HTML/javascript/guides-data.js`로 변환합니다.
 
 ## 설치법
 https://github.com/Quraressimo/fgc_doc_shortcut/releases
@@ -31,22 +34,22 @@ Releases 페이지로 들어가 최신 Releases의 Asset에서 fgc_doc_shortcut_
 <img width="644" height="471" alt="image" src="https://github.com/user-attachments/assets/58052ccb-07e7-4704-aeb1-f483a607da48" />
 
 ## 사용법
-`crud.sql`을 수정해 DB에 반영할 때는 다음 명령을 실행합니다.
+`DB\sql\crud.sql`을 수정해 DB에 반영할 때는 다음 명령을 실행합니다.
 
-    py DB\apply_sql.py
-    py DB\export_guides.py
+    py DB\python\apply_sql.py
+    py DB\python\export_guides.py
 
 필터 설정을 수정할 때는 `DB\filter-groups.json`을 편집한 뒤
-`py DB\export_guides.py`를 실행하세요. 이 스크립트가 설정을 `HTML\guides-data.js`에
+`py DB\python\export_guides.py`를 실행하세요. 이 스크립트가 설정을 `HTML\javascript\guides-data.js`에
 포함하므로, 기존 그룹에 태그를 추가하거나 새 그룹을 추가할 때 Python/JavaScript/HTML을
 함께 수정할 필요가 없습니다.
 
 `apply_sql.py`는 `guides` 테이블을 삭제하고 SQL 파일 기준으로 다시 만듭니다.
 따라서 DB에 직접 추가한 `guides` 행은 유지되지 않습니다. 기존 DB 내용을 콘솔에서
-확인하려면 `py DB\only_db_read.py`를 실행하세요.
+확인하려면 `py DB\python\only_db_read.py`를 실행하세요.
 
 페이지의 `공략 추가용 SQL 만들기`에서 공략 정보를 입력하면 `INSERT` 문을 생성할 수
-있습니다. 생성된 문을 `DB\crud.sql`에 추가한 뒤 위 두 명령을 실행하면 DB와 웹페이지
+있습니다. 생성된 문을 `DB\sql\crud.sql`에 추가한 뒤 위 두 명령을 실행하면 DB와 웹페이지
 데이터가 갱신됩니다. 그 다음 `HTML\index.html`을 브라우저에서 직접 열면 됩니다.
 
 ## 실행 화면 스크린샷

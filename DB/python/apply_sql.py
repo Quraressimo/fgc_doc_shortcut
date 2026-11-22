@@ -4,10 +4,11 @@ from pathlib import Path
 
 
 def main() -> None:
-	base_dir = Path(__file__).resolve().parent
-	db_path = base_dir / "fgc.db"
-	schema_path = base_dir / "tables.sql"
-	crud_path = base_dir / "crud.sql"
+	db_dir = Path(__file__).resolve().parent.parent
+	sql_dir = db_dir / "sql"
+	db_path = db_dir / "fgc.db"
+	schema_path = sql_dir / "tables.sql"
+	crud_path = sql_dir / "crud.sql"
 
 	schema_sql = schema_path.read_text(encoding="utf-8")
 	crud_sql = crud_path.read_text(encoding="utf-8")

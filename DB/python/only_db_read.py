@@ -3,9 +3,9 @@ from contextlib import closing
 from pathlib import Path
 
 def main() -> None:
-	# 이 스크립트와 같은 DB 폴더에 있는 데이터베이스를 읽습니다.
-	base_dir = Path(__file__).resolve().parent
-	db_path = base_dir / "fgc.db"
+	# Python 스크립트의 상위 DB 폴더에 있는 데이터베이스를 읽습니다.
+	db_dir = Path(__file__).resolve().parent.parent
+	db_path = db_dir / "fgc.db"
 
 	with closing(
 		sqlite3.connect(f"{db_path.as_uri()}?mode=ro", uri=True)
