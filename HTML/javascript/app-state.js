@@ -16,6 +16,7 @@ const CLOSE_SQL_GENERATOR_BUTTON = document.querySelector("#close-sql-generator"
 const GUIDE_ID_INPUT = document.querySelector("#guide-id-input");
 const GUIDE_ID_HELP = document.querySelector("#guide-id-help");
 const GUIDE_PLATFORM_INPUT = document.querySelector("#guide-platform-input");
+const GUIDE_TITLE_INPUT = document.querySelector("#guide-title-input");
 const GUIDE_CHARACTER_INPUT = document.querySelector("#guide-character-input");
 const GUIDE_TAG_INPUTS = [1, 2, 3, 4, 5].map((index) => document.querySelector(`#guide-tag-${index}-input`));
 const FILTER_CONFIG = window.GUIDE_CONFIG;
@@ -130,13 +131,10 @@ const SELECTED_FILTERS = {
 let filterOpenStateBeforeSearch = null;
 let previousSearchQuery = "";
 
-// 설정에 등록된 선택지와 DB에만 존재하는 값을 합쳐 자동완성 후보를 준비합니다.
-const GUIDE_CHARACTER_OPTIONS = [...new Set([
-    ...Object.values(CHARACTER_GROUPS).flat(),
-    ...guides.map((guide) => guide.character?.trim()).filter(Boolean)
-])];
-// 기본 설정과 실제 공략에서 쓰인 태그를 합쳐 필터 후보를 준비합니다.
-const GUIDE_TAG_OPTIONS = [...new Set([
-    ...TAG_GROUP_ORDER.flatMap((groupName) => TAG_GROUPS[groupName].tags),
-    ...guides.flatMap((guide) => guide.tags ?? [])
-])].filter(Boolean);
+// 추가 폼의 선택지는 필터 설정에 등록된 값만 허용합니다.
+const GUIDE_CHARACTER_OPTIONS = [...new Set(Object.values(CHARACTER_GROUPS).flat())];
+const GUIDE_TAG_OPTIONS = [...new Set(
+    TAG_GROUP_ORDER.flatMap((groupName) => TAG_GROUPS[groupName].tags)
+)];
+const GUIDE_CHARACTER_OPTION_SET = new Set(GUIDE_CHARACTER_OPTIONS);
+const GUIDE_TAG_OPTION_SET = new Set(GUIDE_TAG_OPTIONS);

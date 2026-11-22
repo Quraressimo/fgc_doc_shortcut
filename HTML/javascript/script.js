@@ -22,6 +22,7 @@ GUIDE_TAG_INPUTS.forEach((input, index) => {
         GUIDE_TAG_OPTIONS
     );
 });
+setupGuideFormValidation();
 
 // 공략 추가 창을 열고 닫습니다.
 OPEN_SQL_GENERATOR_BUTTON.addEventListener("click", () => {
@@ -40,6 +41,11 @@ SQL_GENERATOR_DIALOG.addEventListener("click", (event) => {
 // 브라우저에서 Python이나 DB를 직접 실행하는 것은 아니므로, 생성된 SQL을 DB에 반영하려면 별도 절차가 필요합니다.
 GUIDE_FORM.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (!validateGuideForm()) {
+        GUIDE_FORM.reportValidity();
+        return;
+    }
+
     SQL_OUTPUT.value = createGuideInsertSql();
     SQL_OUTPUT_AREA.hidden = false;
     SQL_STATUS.textContent = "crud.sql에 붙여 넣을 INSERT 문이 생성되었습니다.";

@@ -36,6 +36,58 @@ function updateGuideIdForPlatform() {
     GUIDE_ID_HELP.textContent = "플랫폼을 선택하면 로드된 DB 데이터 기준 최소 빈 ID를 입력합니다.";
 }
 
+// 공백만 입력하거나 필터 설정에 없는 값을 폼 검증 오류로 표시합니다.
+function validateGuideForm() {
+    let isValid = true;
+    const fields = [
+        { input: GUIDE_TITLE_INPUT, label: "제목", required: true },
+        {
+            input: GUIDE_CHARACTER_INPUT,
+            label: "캐릭터",
+            options: GUIDE_CHARACTER_OPTION_SET
+        },
+        ...GUIDE_TAG_INPUTS.map((input, index) => ({
+            input,
+            label: `태그 ${index + 1}`,
+            required: index === 0,
+            options: GUIDE_TAG_OPTION_SET
+        }))
+    ];
+
+    for (const { input, label, required = false, options } of fields) {
+        const value = input.value.trim();
+        let error = "";
+
+        if (!value) {
+            if (input.value.length > 0) {
+                error = `${label}: 공백만 입력할 수 없습니다.`;
+            } else if (required) {
+                error = `필수 입력 항목입니다: ${label}.`;
+            }
+        } else if (options && !options.has(value)) {
+            error = `${label}: 필터 설정에 등록된 값만 입력할 수 있습니다.`;
+        }
+
+        input.setCustomValidity(error);
+        isValid = isValid && error === "";
+    }
+
+    return isValid;
+}
+
+function setupGuideFormValidation() {
+    const inputs = [
+        GUIDE_TITLE_INPUT,
+        GUIDE_CHARACTER_INPUT,
+        ...GUIDE_TAG_INPUTS
+    ];
+
+    for (const input of inputs) {
+        input.addEventListener("input", validateGuideForm);
+    }
+    validateGuideForm();
+}
+
 // 입력한 검색어를 포함하는 추천 항목을 최대 8개까지 목록에 표시합니다.
 function renderAutocompleteSuggestions(input, list, options) {
     const query = input.value.trim().toLocaleLowerCase();

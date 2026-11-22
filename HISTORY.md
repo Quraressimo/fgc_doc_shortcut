@@ -88,3 +88,5 @@ db와 예시 등등을 추가해 실제 검색이 되게 해봤습니다.
 # 11월 16일 월
 
 - That won't make it in time for this schedule
+
+# 11월 22일 일
