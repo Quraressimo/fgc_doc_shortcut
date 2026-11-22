@@ -17,9 +17,7 @@ const GUIDE_ID_INPUT = document.querySelector("#guide-id-input");
 const GUIDE_ID_HELP = document.querySelector("#guide-id-help");
 const GUIDE_PLATFORM_INPUT = document.querySelector("#guide-platform-input");
 const GUIDE_CHARACTER_INPUT = document.querySelector("#guide-character-input");
-const GUIDE_TAG_INPUTS = [1, 2, 3, 4, 5].map((index) =>
-    document.querySelector(`#guide-tag-${index}-input`)
-);
+const GUIDE_TAG_INPUTS = [1, 2, 3, 4, 5].map((index) => document.querySelector(`#guide-tag-${index}-input`));
 const TAG_GROUPS = window.GUIDE_CONFIG.tagGroups;
 const TAG_GROUP_ORDER = Object.keys(TAG_GROUPS);
 

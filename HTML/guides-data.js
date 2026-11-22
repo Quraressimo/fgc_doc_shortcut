@@ -2,51 +2,23 @@ window.GUIDE_CONFIG = {
     "tagGroups": {
         "difficulty": {
             "label": "난이도",
-            "tags": [
-                "~브론즈",
-                "~골드",
-                "~다이아",
-                "~투신"
-            ]
+            "tags": ["~브론즈", "~골드", "~다이아", "~투신"]
         },
         "category": {
             "label": "분류",
-            "tags": [
-                "콤보",
-                "셋업",
-                "운영",
-                "기초",
-                "대처법",
-                "공용"
-            ]
+            "tags": ["콤보", "셋업", "운영", "기초", "대처법", "공용"]
         },
         "situation": {
             "label": "상황",
-            "tags": [
-                "뉴트럴",
-                "대공",
-                "카운터",
-                "월브레이크",
-                "압박",
-                "기상"
-            ]
+            "tags": ["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]
         },
         "location": {
             "label": "위치",
-            "tags": [
-                "개막",
-                "구석",
-                "근거리",
-                "중거리",
-                "원거리"
-            ]
+            "tags": ["개막", "구석", "근거리", "중거리", "원거리"]
         },
         "type": {
             "label": "유형",
-            "tags": [
-                "텐션 50%",
-                "텐션 100%"
-            ]
+            "tags": ["텐션 50%", "텐션 100%"]
         }
     }
 };
@@ -57,20 +29,9 @@ window.GUIDES = [
         "title": "공통 시스템 가이드",
         "character": "공용",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영",
-            "공용"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영",
-            "공용"
-        ],
+        "tags": ["기초", "~브론즈", "운영", "공용"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영", "공용"],
         "situation": [],
         "location": [],
         "type": []
@@ -81,18 +42,9 @@ window.GUIDES = [
         "title": "솔 배드가이 스타터 가이드",
         "character": "솔 배드가이",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -103,18 +55,9 @@ window.GUIDES = [
         "title": "카이 키스크 스타터 가이드",
         "character": "카이 키스크",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -125,18 +68,9 @@ window.GUIDES = [
         "title": "메이 스타터 가이드",
         "character": "메이",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -147,18 +81,9 @@ window.GUIDES = [
         "title": "액슬 로우 스타터 가이드",
         "character": "액슬 로우",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -169,18 +94,9 @@ window.GUIDES = [
         "title": "치프 자너프 스타터 가이드",
         "character": "치프 자너프",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -191,18 +107,9 @@ window.GUIDES = [
         "title": "포템킨 스타터 가이드",
         "character": "포템킨",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -213,18 +120,9 @@ window.GUIDES = [
         "title": "파우스트 스타터 가이드",
         "character": "파우스트",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -235,18 +133,9 @@ window.GUIDES = [
         "title": "밀리아 레이지 스타터 가이드",
         "character": "밀리아 레이지",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -257,18 +146,9 @@ window.GUIDES = [
         "title": "자토=ONE 스타터 가이드",
         "character": "자토 ONE",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -279,18 +159,9 @@ window.GUIDES = [
         "title": "램리썰 밸런타인 스타터 가이드",
         "character": "램리썰 밸런타인",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -301,18 +172,9 @@ window.GUIDES = [
         "title": "레오 화이트팽 스타터 가이드",
         "character": "레오 화이트팽",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -323,18 +185,9 @@ window.GUIDES = [
         "title": "나고리유키 스타터 가이드",
         "character": "나고리유키",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -345,18 +198,9 @@ window.GUIDES = [
         "title": "지오바나 스타터 가이드",
         "character": "지오바나",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -367,18 +211,9 @@ window.GUIDES = [
         "title": "안지 미토 스타터 가이드",
         "character": "안지 미토",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -389,18 +224,9 @@ window.GUIDES = [
         "title": "이노 스타터 가이드",
         "character": "이노",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -411,18 +237,9 @@ window.GUIDES = [
         "title": "골드루이스 디킨슨 스타터 가이드",
         "character": "골드루이스 디킨슨",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -433,18 +250,9 @@ window.GUIDES = [
         "title": "잭 오 스타터 가이드",
         "character": "잭 오",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -455,18 +263,9 @@ window.GUIDES = [
         "title": "해피 케이오스 스타터 가이드",
         "character": "해피 케이오스",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -477,18 +276,9 @@ window.GUIDES = [
         "title": "바이켄 스타터 가이드",
         "character": "바이켄",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -499,18 +289,9 @@ window.GUIDES = [
         "title": "테스타먼트 스타터 가이드",
         "character": "테스타먼트",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -521,18 +302,9 @@ window.GUIDES = [
         "title": "브리짓 스타터 가이드",
         "character": "브리짓",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -543,18 +315,9 @@ window.GUIDES = [
         "title": "신 키스크 스타터 가이드",
         "character": "신 키스크",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -565,18 +328,9 @@ window.GUIDES = [
         "title": "베드맨? 스타터 가이드",
         "character": "베드맨?",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -587,18 +341,9 @@ window.GUIDES = [
         "title": "아스카 R# 스타터 가이드",
         "character": "아스카 R#",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -609,18 +354,9 @@ window.GUIDES = [
         "title": "죠니 스타터 가이드",
         "character": "죠니",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -631,18 +367,9 @@ window.GUIDES = [
         "title": "엘페르트 밸런타인 스타터 가이드",
         "character": "엘페르트 밸런타인",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -653,18 +380,9 @@ window.GUIDES = [
         "title": "A.B.A 스타터 가이드",
         "character": "A.B.A",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -675,18 +393,9 @@ window.GUIDES = [
         "title": "슬레이어 스타터 가이드",
         "character": "슬레이어",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -697,18 +406,9 @@ window.GUIDES = [
         "title": "퀸 디지 스타터 가이드",
         "character": "퀸 디지",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -719,18 +419,9 @@ window.GUIDES = [
         "title": "베놈 스타터 가이드",
         "character": "베놈",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -741,18 +432,9 @@ window.GUIDES = [
         "title": "유니카 스타터 가이드",
         "character": "유니카",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -763,18 +445,9 @@ window.GUIDES = [
         "title": "루시 스타터 가이드",
         "character": "루시",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -785,18 +458,9 @@ window.GUIDES = [
         "title": "쿠라도베리 잼 스타터 가이드",
         "character": "쿠라도베리 잼",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -807,18 +471,9 @@ window.GUIDES = [
         "title": "로보카이 스타터 가이드",
         "character": "로보카이",
         "platform": "YouTube",
-        "tags": [
-            "기초",
-            "~브론즈",
-            "운영"
-        ],
-        "difficulty": [
-            "~브론즈"
-        ],
-        "category": [
-            "기초",
-            "운영"
-        ],
+        "tags": ["기초", "~브론즈", "운영"],
+        "difficulty": ["~브론즈"],
+        "category": ["기초", "운영"],
         "situation": [],
         "location": [],
         "type": []
@@ -829,24 +484,10 @@ window.GUIDES = [
         "title": "[공략대회] 광물단이 말아주는 잼 공략",
         "character": "쿠라도베리 잼",
         "platform": "dcinside",
-        "tags": [
-            "~다이아",
-            "운영",
-            "기초",
-            "뉴트럴",
-            "콤보"
-        ],
-        "difficulty": [
-            "~다이아"
-        ],
-        "category": [
-            "운영",
-            "기초",
-            "콤보"
-        ],
-        "situation": [
-            "뉴트럴"
-        ],
+        "tags": ["~다이아", "운영", "기초", "뉴트럴", "콤보"],
+        "difficulty": ["~다이아"],
+        "category": ["운영", "기초", "콤보"],
+        "situation": ["뉴트럴"],
         "location": [],
         "type": []
     },
@@ -856,24 +497,10 @@ window.GUIDES = [
         "title": "개격븽의 격겜학개론) 옵션 셀렉트",
         "character": "공용",
         "platform": "아카라이브",
-        "tags": [
-            "공용",
-            "~다이아",
-            "셋업",
-            "대처법",
-            "기상"
-        ],
-        "difficulty": [
-            "~다이아"
-        ],
-        "category": [
-            "공용",
-            "셋업",
-            "대처법"
-        ],
-        "situation": [
-            "기상"
-        ],
+        "tags": ["공용", "~다이아", "셋업", "대처법", "기상"],
+        "difficulty": ["~다이아"],
+        "category": ["공용", "셋업", "대처법"],
+        "situation": ["기상"],
         "location": [],
         "type": []
     },
@@ -883,18 +510,9 @@ window.GUIDES = [
         "title": "솔 배드가이 Dustloop",
         "character": "솔 배드가이",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -905,18 +523,9 @@ window.GUIDES = [
         "title": "카이 키스크 Dustloop",
         "character": "카이 키스크",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -927,18 +536,9 @@ window.GUIDES = [
         "title": "메이 Dustloop",
         "character": "메이",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -949,18 +549,9 @@ window.GUIDES = [
         "title": "액슬 로우 Dustloop",
         "character": "액슬 로우",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -971,18 +562,9 @@ window.GUIDES = [
         "title": "치프 자너프 Dustloop",
         "character": "치프 자너프",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -993,18 +575,9 @@ window.GUIDES = [
         "title": "포템킨 Dustloop",
         "character": "포템킨",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1015,18 +588,9 @@ window.GUIDES = [
         "title": "파우스트 Dustloop",
         "character": "파우스트",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1037,18 +601,9 @@ window.GUIDES = [
         "title": "밀리아 레이지 Dustloop",
         "character": "밀리아 레이지",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1059,18 +614,9 @@ window.GUIDES = [
         "title": "자토=ONE Dustloop",
         "character": "자토 ONE",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1081,18 +627,9 @@ window.GUIDES = [
         "title": "램리썰 밸런타인 Dustloop",
         "character": "램리썰 밸런타인",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1103,18 +640,9 @@ window.GUIDES = [
         "title": "레오 화이트팽 Dustloop",
         "character": "레오 화이트팽",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1125,18 +653,9 @@ window.GUIDES = [
         "title": "나고리유키 Dustloop",
         "character": "나고리유키",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1147,18 +666,9 @@ window.GUIDES = [
         "title": "지오바나 Dustloop",
         "character": "지오바나",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1169,18 +679,9 @@ window.GUIDES = [
         "title": "안지 미토 Dustloop",
         "character": "안지 미토",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1191,18 +692,9 @@ window.GUIDES = [
         "title": "이노 Dustloop",
         "character": "이노",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1213,18 +705,9 @@ window.GUIDES = [
         "title": "골드루이스 디킨슨 Dustloop",
         "character": "골드루이스 디킨슨",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1235,18 +718,9 @@ window.GUIDES = [
         "title": "잭 오 Dustloop",
         "character": "잭 오",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1257,18 +731,9 @@ window.GUIDES = [
         "title": "해피 케이오스 Dustloop",
         "character": "해피 케이오스",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1279,18 +744,9 @@ window.GUIDES = [
         "title": "바이켄 Dustloop",
         "character": "바이켄",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1301,18 +757,9 @@ window.GUIDES = [
         "title": "테스타먼트 Dustloop",
         "character": "테스타먼트",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1323,18 +770,9 @@ window.GUIDES = [
         "title": "브리짓 Dustloop",
         "character": "브리짓",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1345,18 +783,9 @@ window.GUIDES = [
         "title": "신 키스크 Dustloop",
         "character": "신 키스크",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1367,18 +796,9 @@ window.GUIDES = [
         "title": "베드맨? Dustloop",
         "character": "베드맨?",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1389,18 +809,9 @@ window.GUIDES = [
         "title": "아스카 R# Dustloop",
         "character": "아스카 R#",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1411,18 +822,9 @@ window.GUIDES = [
         "title": "죠니 Dustloop",
         "character": "죠니",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1433,18 +835,9 @@ window.GUIDES = [
         "title": "엘페르트 밸런타인 Dustloop",
         "character": "엘페르트 밸런타인",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1455,18 +848,9 @@ window.GUIDES = [
         "title": "A.B.A Dustloop",
         "character": "A.B.A",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1477,18 +861,9 @@ window.GUIDES = [
         "title": "슬레이어 Dustloop",
         "character": "슬레이어",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1499,18 +874,9 @@ window.GUIDES = [
         "title": "퀸 디지 Dustloop",
         "character": "퀸 디지",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1521,18 +887,9 @@ window.GUIDES = [
         "title": "베놈 Dustloop",
         "character": "베놈",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1543,18 +900,9 @@ window.GUIDES = [
         "title": "유니카 Dustloop",
         "character": "유니카",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1565,18 +913,9 @@ window.GUIDES = [
         "title": "루시 Dustloop",
         "character": "루시",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1587,18 +926,9 @@ window.GUIDES = [
         "title": "쿠라도베리 잼 Dustloop",
         "character": "쿠라도베리 잼",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []
@@ -1609,18 +939,9 @@ window.GUIDES = [
         "title": "로보카이 Dustloop",
         "character": "로보카이",
         "platform": "기타",
-        "tags": [
-            "대처법",
-            "~투신",
-            "기초"
-        ],
-        "difficulty": [
-            "~투신"
-        ],
-        "category": [
-            "대처법",
-            "기초"
-        ],
+        "tags": ["대처법", "~투신", "기초"],
+        "difficulty": ["~투신"],
+        "category": ["대처법", "기초"],
         "situation": [],
         "location": [],
         "type": []

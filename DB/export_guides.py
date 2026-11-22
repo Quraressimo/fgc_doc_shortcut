@@ -1,4 +1,5 @@
 import json
+import re
 import sqlite3
 from pathlib import Path
 
@@ -8,6 +9,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "DB" / "fgc.db"
 TAG_GROUPS_PATH = BASE_DIR / "DB" / "tag-groups.json"
 OUTPUT_PATH = BASE_DIR / "HTML" / "guides-data.js"
+STRING_ARRAY_PATTERN = re.compile(
+    r'\[\s*(?:"(?:\\.|[^"\\])*"(?:\s*,\s*"(?:\\.|[^"\\])*")*)?\s*\]'
+)
+
+
+def compact_string_arrays(json_text: str) -> str:
+    def compact_array(match: re.Match[str]) -> str:
+        values = json.loads(match.group())
+        return json.dumps(values, ensure_ascii=False, separators=(", ", ": "))
+
+    return STRING_ARRAY_PATTERN.sub(compact_array, json_text)
 
 
 def main() -> None:
@@ -50,8 +62,12 @@ def main() -> None:
         guides.append(guide)
 
     # 설정과 데이터 모두 스크립트로 내보내 file:// 환경에서도 사용할 수 있게 합니다.
-    config_data = json.dumps({"tagGroups": tag_groups}, ensure_ascii=False, indent=4)
-    guides_data = json.dumps(guides, ensure_ascii=False, indent=4)
+    config_data = compact_string_arrays(
+        json.dumps({"tagGroups": tag_groups}, ensure_ascii=False, indent=4)
+    )
+    guides_data = compact_string_arrays(
+        json.dumps(guides, ensure_ascii=False, indent=4)
+    )
     OUTPUT_PATH.write_text(
         f"window.GUIDE_CONFIG = {config_data};\n"
         f"window.GUIDES = {guides_data};\n",
