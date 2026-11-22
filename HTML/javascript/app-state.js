@@ -45,8 +45,13 @@ const TAG_FILTER_SUBFILTERS = Object.entries(TAG_GROUPS).map(
     }
 );
 
+const CHARACTER_GROUP_ENTRIES = Object.entries(CHARACTER_CONFIG);
+const ORDERED_CHARACTER_GROUP_ENTRIES = [
+    ...CHARACTER_GROUP_ENTRIES.filter(([group]) => group === "base"),
+    ...CHARACTER_GROUP_ENTRIES.filter(([group]) => group !== "base")
+];
 const CHARACTER_GROUPS = Object.fromEntries(
-    Object.entries(CHARACTER_CONFIG).map(([group, config]) => [group, config.tags])
+    ORDERED_CHARACTER_GROUP_ENTRIES.map(([group, config]) => [group, config.tags])
 );
 const CHARACTER_GROUP_BY_NAME = new Map(
     Object.entries(CHARACTER_GROUPS).flatMap(([group, characters]) =>
@@ -55,7 +60,7 @@ const CHARACTER_GROUP_BY_NAME = new Map(
 );
 
 const CHARACTER_FILTER_SUBFILTERS = document.querySelector("#character-filter-subfilters");
-const CHARACTER_SUBFILTERS = Object.entries(CHARACTER_CONFIG).map(([group, config]) => {
+const CHARACTER_SUBFILTERS = ORDERED_CHARACTER_GROUP_ENTRIES.map(([group, config]) => {
     const container = document.createElement("fieldset");
     const legend = document.createElement("legend");
     const list = document.createElement("ul");
