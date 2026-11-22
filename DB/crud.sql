@@ -48,6 +48,44 @@ INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag
 	(33, 'https://youtu.be/MIJwA7Pu9Ns', '쿠라도베리 잼 스타터 가이드', '쿠라도베리 잼', 'YouTube', '기초', '~브론즈', '운영', '', ''),
 	(34, 'https://youtu.be/NdGQ7YGBHOw', '로보카이 스타터 가이드', '로보카이', 'YouTube', '기초', '~브론즈', '운영', '', '');
 
+-- X
+INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
+    (1000, 'https://x.com/hashtag/GGST_SO', '#GGST_SO 해시태그', '솔 배드가이', 'X', '기초', '', '', '', ''),
+    (1001, 'https://x.com/hashtag/GGST_KY', '#GGST_KY 해시태그', '카이 키스크', 'X', '기초', '', '', '', ''),
+    (1002, 'https://x.com/hashtag/GGST_MA', '#GGST_MA 해시태그', '메이', 'X', '기초', '', '', '', ''),
+    (1003, 'https://x.com/hashtag/GGST_AX', '#GGST_AX 해시태그', '액슬 로우', 'X', '기초', '', '', '', ''),
+    (1004, 'https://x.com/hashtag/GGST_CH', '#GGST_CH 해시태그', '치프 자너프', 'X', '기초', '', '', '', ''),
+    (1005, 'https://x.com/hashtag/GGST_PO', '#GGST_PO 해시태그', '포템킨', 'X', '기초', '', '', '', ''),
+    (1006, 'https://x.com/hashtag/GGST_FA', '#GGST_FA 해시태그', '파우스트', 'X', '기초', '', '', '', ''),
+    (1007, 'https://x.com/hashtag/GGST_MI', '#GGST_MI 해시태그', '밀리아 레이지', 'X', '기초', '', '', '', ''),
+    (1008, 'https://x.com/hashtag/GGST_ZA', '#GGST_ZA 해시태그', '자토 ONE', 'X', '기초', '', '', '', ''),
+    (1009, 'https://x.com/hashtag/GGST_RA', '#GGST_RA 해시태그', '램리썰 밸런타인', 'X', '기초', '', '', '', ''),
+    (1010, 'https://x.com/hashtag/GGST_LE', '#GGST_LE 해시태그', '레오 화이트팽', 'X', '기초', '', '', '', ''),
+    (1011, 'https://x.com/hashtag/GGST_NA', '#GGST_NA 해시태그', '나고리유키', 'X', '기초', '', '', '', ''),
+    (1012, 'https://x.com/hashtag/GGST_GI', '#GGST_GI 해시태그', '지오바나', 'X', '기초', '', '', '', ''),
+    (1013, 'https://x.com/hashtag/GGST_AN', '#GGST_AN 해시태그', '안지 미토', 'X', '기초', '', '', '', ''),
+    (1014, 'https://x.com/hashtag/GGST_IN', '#GGST_IN 해시태그', '이노', 'X', '기초', '', '', '', ''),
+    (1015, 'https://x.com/hashtag/GGST_GO', '#GGST_GO 해시태그', '골드루이스 디킨슨', 'X', '기초', '', '', '', ''),
+    (1016, 'https://x.com/hashtag/GGST_JO', '#GGST_JO 해시태그', '잭 오', 'X', '기초', '', '', '', ''),
+    (1017, 'https://x.com/hashtag/GGST_HA', '#GGST_HA 해시태그', '해피 케이오스', 'X', '기초', '', '', '', ''),
+    (1018, 'https://x.com/hashtag/GGST_BA', '#GGST_BA 해시태그', '바이켄', 'X', '기초', '', '', '', ''),
+    (1019, 'https://x.com/hashtag/GGST_TE', '#GGST_TE 해시태그', '테스타먼트', 'X', '기초', '', '', '', ''),
+    (1020, 'https://x.com/hashtag/GGST_BR', '#GGST_BR 해시태그', '브리짓', 'X', '기초', '', '', '', ''),
+    (1021, 'https://x.com/hashtag/GGST_SI', '#GGST_SI 해시태그', '신 키스크', 'X', '기초', '', '', '', ''),
+    (1022, 'https://x.com/hashtag/GGST_BE', '#GGST_BE 해시태그', '베드맨?', 'X', '기초', '', '', '', ''),
+    (1023, 'https://x.com/hashtag/GGST_AS', '#GGST_AS 해시태그', '아스카 R#', 'X', '기초', '', '', '', ''),
+    (1024, 'https://x.com/hashtag/GGST_JN', '#GGST_JN 해시태그', '죠니', 'X', '기초', '', '', '', ''),
+    (1025, 'https://x.com/hashtag/GGST_EL', '#GGST_EL 해시태그', '엘페르트 밸런타인', 'X', '기초', '', '', '', ''),
+    (1026, 'https://x.com/hashtag/GGST_AB', '#GGST_AB 해시태그', 'A.B.A', 'X', '기초', '', '', '', ''),
+    (1027, 'https://x.com/hashtag/GGST_SL', '#GGST_SL 해시태그', '슬레이어', 'X', '기초', '', '', '', ''),
+    (1028, 'https://x.com/hashtag/GGST_DI', '#GGST_DI 해시태그', '퀸 디지', 'X', '기초', '', '', '', ''),
+    (1029, 'https://x.com/hashtag/GGST_VE', '#GGST_VE 해시태그', '베놈', 'X', '기초', '', '', '', ''),
+    (1030, 'https://x.com/hashtag/GGST_UN', '#GGST_UN 해시태그', '유니카', 'X', '기초', '', '', '', ''),
+    (1031, 'https://x.com/hashtag/GGST_LU', '#GGST_LU 해시태그', '루시', 'X', '기초', '', '', '', ''),
+    (1032, 'https://x.com/hashtag/GGST_JA', '#GGST_JA 해시태그', '쿠라도베리 잼', 'X', '기초', '', '', '', ''),
+    (1033, 'https://x.com/hashtag/GGST_RK', '#GGST_RK 해시태그', '로보카이', 'X', '기초', '', '', '', ''),
+	(1050, 'https://x.com/LeoBgkk/status/1416126997772881928?a=bBY-YdJ_XhcxI_WvFt0&s=20', '#GGST #GGST_ZA', '자토 ONE', 'X', '기초', '운영', '뉴트럴', '', '');
+
 -- 디씨
 INSERT INTO guides (id, url, title, chara, platform, tag1, tag2, tag3, tag4, tag5) VALUES
 	(2000, 'https://gall.dcinside.com/guiltygear/534733', '[공략대회] 광물단이 말아주는 잼 공략', '쿠라도베리 잼', 'dcinside', '~다이아', '운영', '기초', '뉴트럴', '콤보');

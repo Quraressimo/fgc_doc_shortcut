@@ -1,24 +1,28 @@
 window.GUIDE_CONFIG = {
-    "tagGroups": {
-        "difficulty": {
-            "label": "난이도",
-            "tags": ["~브론즈", "~골드", "~다이아", "~투신"]
+    "characters": {
+        "base": {
+            "label": "기본 캐릭터",
+            "tags": ["솔 배드가이", "카이 키스크", "메이", "액슬 로우", "치프 자너프", "포템킨", "파우스트", "밀리아 레이지", "자토 ONE", "램리썰 밸런타인", "레오 화이트팽", "나고리유키", "지오바나", "안지 미토", "이노", "공용"]
         },
-        "category": {
-            "label": "분류",
-            "tags": ["콤보", "셋업", "운영", "기초", "대처법", "공용"]
+        "1": {
+            "label": "시즌 패스 1",
+            "tags": ["골드루이스 디킨슨", "잭 오", "해피 케이오스", "바이켄", "테스타먼트"]
         },
-        "situation": {
-            "label": "상황",
-            "tags": ["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]
+        "2": {
+            "label": "시즌 패스 2",
+            "tags": ["브리짓", "신 키스크", "베드맨?", "아스카 R#"]
         },
-        "location": {
-            "label": "위치",
-            "tags": ["개막", "구석", "근거리", "중거리", "원거리"]
+        "3": {
+            "label": "시즌 패스 3",
+            "tags": ["죠니", "엘페르트 밸런타인", "A.B.A", "슬레이어"]
         },
-        "type": {
-            "label": "유형",
-            "tags": ["텐션 50%", "텐션 100%"]
+        "4": {
+            "label": "시즌 패스 4",
+            "tags": ["퀸 디지", "베놈", "유니카", "루시"]
+        },
+        "5": {
+            "label": "시즌 패스 5",
+            "tags": ["쿠라도베리 잼", "로보카이"]
         }
     },
     "platforms": [
@@ -48,30 +52,26 @@ window.GUIDE_CONFIG = {
             "idRangeSize": 1000
         }
     ],
-    "characters": {
-        "base": {
-            "label": "기본 캐릭터",
-            "tags": ["솔 배드가이", "카이 키스크", "메이", "액슬 로우", "치프 자너프", "포템킨", "파우스트", "밀리아 레이지", "자토 ONE", "램리썰 밸런타인", "레오 화이트팽", "나고리유키", "지오바나", "안지 미토", "이노", "공용"]
+    "tagGroups": {
+        "difficulty": {
+            "label": "난이도",
+            "tags": ["~브론즈", "~골드", "~다이아", "~투신"]
         },
-        "1": {
-            "label": "시즌 패스 1",
-            "tags": ["골드루이스 디킨슨", "잭 오", "해피 케이오스", "바이켄", "테스타먼트"]
+        "category": {
+            "label": "분류",
+            "tags": ["콤보", "셋업", "운영", "기초", "대처법", "공용"]
         },
-        "2": {
-            "label": "시즌 패스 2",
-            "tags": ["브리짓", "신 키스크", "베드맨?", "아스카 R#"]
+        "situation": {
+            "label": "상황",
+            "tags": ["뉴트럴", "대공", "카운터", "월브레이크", "압박", "기상"]
         },
-        "3": {
-            "label": "시즌 패스 3",
-            "tags": ["죠니", "엘페르트 밸런타인", "A.B.A", "슬레이어"]
+        "location": {
+            "label": "위치",
+            "tags": ["개막", "구석", "근거리", "중거리", "원거리"]
         },
-        "4": {
-            "label": "시즌 패스 4",
-            "tags": ["퀸 디지", "베놈", "유니카", "루시"]
-        },
-        "5": {
-            "label": "시즌 패스 5",
-            "tags": ["쿠라도베리 잼", "로보카이"]
+        "type": {
+            "label": "유형",
+            "tags": ["텐션 50%", "텐션 100%"]
         }
     }
 };
@@ -528,6 +528,461 @@ window.GUIDES = [
         "difficulty": ["~브론즈"],
         "category": ["기초", "운영"],
         "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1000,
+        "url": "https://x.com/hashtag/GGST_SO",
+        "title": "#GGST_SO 해시태그",
+        "character": "솔 배드가이",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1001,
+        "url": "https://x.com/hashtag/GGST_KY",
+        "title": "#GGST_KY 해시태그",
+        "character": "카이 키스크",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1002,
+        "url": "https://x.com/hashtag/GGST_MA",
+        "title": "#GGST_MA 해시태그",
+        "character": "메이",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1003,
+        "url": "https://x.com/hashtag/GGST_AX",
+        "title": "#GGST_AX 해시태그",
+        "character": "액슬 로우",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1004,
+        "url": "https://x.com/hashtag/GGST_CH",
+        "title": "#GGST_CH 해시태그",
+        "character": "치프 자너프",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1005,
+        "url": "https://x.com/hashtag/GGST_PO",
+        "title": "#GGST_PO 해시태그",
+        "character": "포템킨",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1006,
+        "url": "https://x.com/hashtag/GGST_FA",
+        "title": "#GGST_FA 해시태그",
+        "character": "파우스트",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1007,
+        "url": "https://x.com/hashtag/GGST_MI",
+        "title": "#GGST_MI 해시태그",
+        "character": "밀리아 레이지",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1008,
+        "url": "https://x.com/hashtag/GGST_ZA",
+        "title": "#GGST_ZA 해시태그",
+        "character": "자토 ONE",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1009,
+        "url": "https://x.com/hashtag/GGST_RA",
+        "title": "#GGST_RA 해시태그",
+        "character": "램리썰 밸런타인",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1010,
+        "url": "https://x.com/hashtag/GGST_LE",
+        "title": "#GGST_LE 해시태그",
+        "character": "레오 화이트팽",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1011,
+        "url": "https://x.com/hashtag/GGST_NA",
+        "title": "#GGST_NA 해시태그",
+        "character": "나고리유키",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1012,
+        "url": "https://x.com/hashtag/GGST_GI",
+        "title": "#GGST_GI 해시태그",
+        "character": "지오바나",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1013,
+        "url": "https://x.com/hashtag/GGST_AN",
+        "title": "#GGST_AN 해시태그",
+        "character": "안지 미토",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1014,
+        "url": "https://x.com/hashtag/GGST_IN",
+        "title": "#GGST_IN 해시태그",
+        "character": "이노",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1015,
+        "url": "https://x.com/hashtag/GGST_GO",
+        "title": "#GGST_GO 해시태그",
+        "character": "골드루이스 디킨슨",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1016,
+        "url": "https://x.com/hashtag/GGST_JO",
+        "title": "#GGST_JO 해시태그",
+        "character": "잭 오",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1017,
+        "url": "https://x.com/hashtag/GGST_HA",
+        "title": "#GGST_HA 해시태그",
+        "character": "해피 케이오스",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1018,
+        "url": "https://x.com/hashtag/GGST_BA",
+        "title": "#GGST_BA 해시태그",
+        "character": "바이켄",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1019,
+        "url": "https://x.com/hashtag/GGST_TE",
+        "title": "#GGST_TE 해시태그",
+        "character": "테스타먼트",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1020,
+        "url": "https://x.com/hashtag/GGST_BR",
+        "title": "#GGST_BR 해시태그",
+        "character": "브리짓",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1021,
+        "url": "https://x.com/hashtag/GGST_SI",
+        "title": "#GGST_SI 해시태그",
+        "character": "신 키스크",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1022,
+        "url": "https://x.com/hashtag/GGST_BE",
+        "title": "#GGST_BE 해시태그",
+        "character": "베드맨?",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1023,
+        "url": "https://x.com/hashtag/GGST_AS",
+        "title": "#GGST_AS 해시태그",
+        "character": "아스카 R#",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1024,
+        "url": "https://x.com/hashtag/GGST_JN",
+        "title": "#GGST_JN 해시태그",
+        "character": "죠니",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1025,
+        "url": "https://x.com/hashtag/GGST_EL",
+        "title": "#GGST_EL 해시태그",
+        "character": "엘페르트 밸런타인",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1026,
+        "url": "https://x.com/hashtag/GGST_AB",
+        "title": "#GGST_AB 해시태그",
+        "character": "A.B.A",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1027,
+        "url": "https://x.com/hashtag/GGST_SL",
+        "title": "#GGST_SL 해시태그",
+        "character": "슬레이어",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1028,
+        "url": "https://x.com/hashtag/GGST_DI",
+        "title": "#GGST_DI 해시태그",
+        "character": "퀸 디지",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1029,
+        "url": "https://x.com/hashtag/GGST_VE",
+        "title": "#GGST_VE 해시태그",
+        "character": "베놈",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1030,
+        "url": "https://x.com/hashtag/GGST_UN",
+        "title": "#GGST_UN 해시태그",
+        "character": "유니카",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1031,
+        "url": "https://x.com/hashtag/GGST_LU",
+        "title": "#GGST_LU 해시태그",
+        "character": "루시",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1032,
+        "url": "https://x.com/hashtag/GGST_JA",
+        "title": "#GGST_JA 해시태그",
+        "character": "쿠라도베리 잼",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1033,
+        "url": "https://x.com/hashtag/GGST_RK",
+        "title": "#GGST_RK 해시태그",
+        "character": "로보카이",
+        "platform": "X",
+        "tags": ["기초"],
+        "difficulty": [],
+        "category": ["기초"],
+        "situation": [],
+        "location": [],
+        "type": []
+    },
+    {
+        "id": 1050,
+        "url": "https://x.com/LeoBgkk/status/1416126997772881928?a=bBY-YdJ_XhcxI_WvFt0&s=20",
+        "title": "#GGST #GGST_ZA",
+        "character": "자토 ONE",
+        "platform": "X",
+        "tags": ["기초", "운영", "뉴트럴"],
+        "difficulty": [],
+        "category": ["기초", "운영"],
+        "situation": ["뉴트럴"],
         "location": [],
         "type": []
     },
