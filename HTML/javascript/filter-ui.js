@@ -1,8 +1,13 @@
 // 하나의 태그가 속한 그룹 이름을 반환합니다.
 // 알 수 없는 값은 other로 분류해 렌더링이 중단되지 않게 합니다.
+const TAG_GROUP_CACHE = new Map(
+    TAG_GROUP_ORDER.flatMap((groupName) =>
+        TAG_GROUPS[groupName].tags.map((tag) => [tag, groupName])
+    )
+);
+
 function getTagGroup(tag) {
-    return Object.entries(TAG_GROUPS)
-        .find(([, group]) => group.tags.includes(tag))?.[0] ?? "other";
+    return TAG_GROUP_CACHE.get(tag) ?? "other";
 }
 
 // DB 입력 순서와 관계없이 결과 태그를 화면 표시 순서로 정렬합니다.
@@ -14,12 +19,20 @@ function getSortedTags(tags) {
 
 // 현재 필터 그룹에서 화면에 보여줄 선택지 목록을 계산합니다.
 // 기본 옵션과 실제 데이터에 포함된 동적 옵션을 합쳐 중복을 제거합니다.
+const GUIDE_VALUE_CACHE = new Map();
+
 function getOptions(groupName, baseOptions, subfilter) {
     const valueField = subfilter?.characterGroup ? "character" : groupName;
-    const guideValues = guides.flatMap((guide) => {
-        const value = guide[valueField];
-        return Array.isArray(value) ? value : value ? [value] : [];
-    });
+    if (!GUIDE_VALUE_CACHE.has(valueField)) {
+        GUIDE_VALUE_CACHE.set(
+            valueField,
+            guides.flatMap((guide) => {
+                const value = guide[valueField];
+                return Array.isArray(value) ? value : value ? [value] : [];
+            })
+        );
+    }
+    const guideValues = GUIDE_VALUE_CACHE.get(valueField);
     const matchingGuideValues = subfilter?.characterGroup
         ? guideValues.filter((character) =>
             CHARACTER_GROUP_BY_NAME.get(character) === subfilter.characterGroup

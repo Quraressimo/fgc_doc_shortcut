@@ -567,6 +567,10 @@ body {
     box-shadow: 0 2px 8px rgb(32 36 42 / 20%);
 }
 
+.back-to-top[hidden] {
+    display: none;
+}
+
 .back-to-top:hover {
     background: #244da8;
 }

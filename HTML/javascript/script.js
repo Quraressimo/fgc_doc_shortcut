@@ -1,6 +1,15 @@
-// 검색어에 맞춰 필터와 공략 목록을 다시 그립니다.
-TAG_SEARCH_INPUT.addEventListener("input", renderFilters);
-GUIDE_TITLE_SEARCH_INPUT.addEventListener("input", renderGuides);
+// 짧은 입력 간격에는 마지막 입력값만 반영해 불필요한 DOM 재생성을 줄입니다.
+let filterRenderTimer = null;
+let guideRenderTimer = null;
+
+TAG_SEARCH_INPUT.addEventListener("input", () => {
+    window.clearTimeout(filterRenderTimer);
+    filterRenderTimer = window.setTimeout(renderFilters, 100);
+});
+GUIDE_TITLE_SEARCH_INPUT.addEventListener("input", () => {
+    window.clearTimeout(guideRenderTimer);
+    guideRenderTimer = window.setTimeout(renderGuides, 100);
+});
 
 restoreFilterPreferences();
 for (const group of Object.values(FILTER_GROUPS)) {
@@ -88,6 +97,20 @@ BACK_TO_TOP_BUTTON.addEventListener("click", () => {
             : "smooth"
     });
 });
+
+// 아래로 충분히 이동한 경우에만 상단 이동 버튼을 표시합니다.
+let updateBackToTopFrame = null;
+function updateBackToTopButton() {
+    if (updateBackToTopFrame !== null) return;
+
+    updateBackToTopFrame = window.requestAnimationFrame(() => {
+        BACK_TO_TOP_BUTTON.hidden = window.scrollY < 300;
+        updateBackToTopFrame = null;
+    });
+}
+
+window.addEventListener("scroll", updateBackToTopButton, { passive: true });
+updateBackToTopButton();
 
 // 페이지를 처음 열 때 필터와 공략 목록을 표시합니다.
 renderFilters();
