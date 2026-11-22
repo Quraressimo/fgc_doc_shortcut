@@ -1,8 +1,10 @@
 # fgc_doc_shortcut
 업데이트 현황은 HISTORY.md 혹은 Releases, Commits 페이지를 참고하세요
 
+해당 코드들은 Github Copilot, ChatGPT AI를 사용해 작성했습니다.
+
 ## 프로젝트 소개
-ai활용프로그래밍 프로젝트용이에요
+ai활용프로그래밍 프로젝트용이에요.
 ### 파일 구조
 #### HTML
 - `index.html`: 공략 검색 화면을 구성합니다.
