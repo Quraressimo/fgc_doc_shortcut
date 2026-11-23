@@ -123,4 +123,11 @@ Node.js가 설치되어 있으면 폼 검증 테스트도 실행하며, 설치�
     - 다크 모드 추가 : 어둡게 페이지를 볼 수 있게 버튼을 추가했습니다.
     - 검색 필터 저장: 로컬 저장으로 다크 모드, 필터 항목을 저장했습니다.
 
-## 실행 화면 스크린샷
+## 실행 화면 스크린샷.
+<img width="2301" height="754" alt="image" src="https://github.com/user-attachments/assets/176c85ed-bfe8-4be9-80d6-0089386c7b80" />
+
+<img width="2300" height="1283" alt="image" src="https://github.com/user-attachments/assets/c0a78106-66c4-4b94-b3ac-fe1c3e2cbae1" />
+
+<img width="294" height="376" alt="image" src="https://github.com/user-attachments/assets/3ad65d65-49aa-4bc6-bdc2-4ea1830991ec" />
+
+<img width="694" height="714" alt="image" src="https://github.com/user-attachments/assets/8cb43d0b-3723-473d-941d-639c2da1cc77" />
